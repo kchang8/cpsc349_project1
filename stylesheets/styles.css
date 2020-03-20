@@ -26,15 +26,13 @@
 
 .body-logo {
   max-height: 250px;
-  display: flex;
-  align-content: center;
-  margin-left: 400px;
-  margin-top: 50px;
+
 }
 
 .container {
   max-width: 80vw;
-  width: 100% padding: 15px 0px;
+  width: 100% ;
+  padding: 15px 15px;
 }
 
 h5 {
@@ -74,12 +72,10 @@ body {
   display: block;
   text-decoration: none;
   margin-top: 50px;
-  margin-left: 450px;
-  color: #FBA1A1 position: relative;
+  position: relative;
   overflow: hidden;
   background: transparent;
   transition: .3s;
-  */
 }
 
 btn:before {
@@ -87,7 +83,7 @@ btn:before {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #FF595E
+  background: #FF595E;
   top: -100%;
   left:0;
   z-index: -1;
