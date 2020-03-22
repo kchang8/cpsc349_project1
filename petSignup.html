@@ -15,7 +15,7 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form data-pet-signup="form">
+                    <form data-pet-signup="form" method="POST" action="" enctype="multipart/form-data">
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-7">
                                 <label for="pNameInput">Pet's name:</label>
@@ -51,9 +51,14 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutPetInput">About me, the pet:</label>
-                            <input class="form-control" name="aboutPet" id="aboutPetInput" value="">
+                            <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3"></textarea>
                         </div>
 
+                        <div class="form-group pt-3 form-font">
+                            <label for="petPhoto">Upload a picture of your pet:</label>
+                            <input type="file" name="petPhoto" id="image"/>
+                        </div>
+                        
                         <button type="addPet" class="btn mx-auto d-block btn-default">Add Pet</button>
                     </form>
                 </div>

@@ -34,7 +34,7 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form data-owner-signup="form">
+                    <form data-owner-signup="form" method="POST" action="" enctype="multipart/form-data">
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
@@ -88,7 +88,7 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <input class="form-control" name="aboutMe" id="aboutInput" value="">
+                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3"></textarea>
                         </div>
 
                         <button type="signIn" class="btn mx-auto d-block btn-default">Sign Up</button>
