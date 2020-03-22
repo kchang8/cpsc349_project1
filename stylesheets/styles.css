@@ -1,11 +1,11 @@
 .home-nav {
     background-color: #FBA1A1;
   }
-  
+
 .navbar-nav {
     font-size: 20px;
 }
-  
+
 .Home-nav-logo {
     max-height: 55px;
 }
@@ -13,25 +13,25 @@
 .login-nav-logo {
     max-height: 115px;
 }
-  
+
 .nav-item {
     padding-left: 50px;
 }
-  
+
 .navbar-collapse {
     max-width: 500px;
 }
-  
+
 .navbar-nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-  
+
 .body-logo {
     max-height: 250px;
 }
-  
+
 h5 {
     font-size: 60px;
     font-family: 'Ubuntu', sans-serif;
@@ -39,27 +39,27 @@ h5 {
     margin-top: 30px;
 }
 
-h2 {
+h2, h4 {
     font-family: 'Ubuntu', sans-serif;
     color: #333C59;
     margin-top: 30px;
     text-align: center;
 }
-  
+
 body {
     background-image: url("../imgs/background.png");
     background-color: #FBA1A1;
     background-repeat: no-repeat;
     background-size: 200% cover;
 }
-  
+
 .col {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
-  
+
 .btn {
     display: flex;
     font-family: 'Ubuntu', sans-serif;
