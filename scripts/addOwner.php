@@ -13,8 +13,9 @@
     }
     else{     
         if(mysqli_num_rows($result)==0){ // If the number of rows return is 0 then that means that there is no username 
-            $query = ""
-            $row = mysqli_fetch_object($result);
+            $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`) "
+            $query.= "VALUES (`$_POST['fnameInput']`,`$_POST['lnameInput']`,`$_POST['cityInput']`,`$_POST['stateInput']`,`$_POST['emailInput']`,`$_POST['genderInput']`)"
+            $result = mysqli_query($conn,$query); 
             $_SESSION["ID"] = $row->ID;
             $_SESSION["err"] = 0;
             echo $row->ID;
