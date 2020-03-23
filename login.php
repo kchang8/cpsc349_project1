@@ -28,7 +28,7 @@
         </nav>
         <section class="container">
             <header>
-                <img class="login-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt ="Paw Me!">
+                <img class="main-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt ="Paw Me!">
                 <h2>Enter your account information</h2>
             </header>
             <div class="panel panel-default">

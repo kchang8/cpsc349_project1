@@ -10,7 +10,7 @@
     max-height: 55px;
 }
 
-.login-nav-logo {
+.main-nav-logo {
     max-height: 115px;
 }
 
@@ -32,7 +32,9 @@
     max-height: 250px;
 }
 
-
+.dropdown-menu {
+    max-width: 50px;
+}
 
 
 
