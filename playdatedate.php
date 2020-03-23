@@ -1,3 +1,9 @@
+<?php 
+include_once('petscripts.php');
+$query="select * from playdates";
+$result=mysql_query()
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -50,7 +56,29 @@
           <th scope="col">Animal Type</th>
         </tr>
       </thead>
-      <tbody>
+      <?php
+      // placeholder values for the IDs
+        while ($rows=mysql_fetch_assoc($result))
+        {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $rows['PetID_responder']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['OwnerID_creator']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['Time']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['PetID_responder_Species']; ?>
+                </td>
+            </tr>
+    <?php
+        }
+    ?>
+      <!-- <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
@@ -69,7 +97,7 @@
           <td>the Bird</td>
           <td>@twitter</td>
         </tr>
-      </tbody>
+      </tbody> -->
     </table>
   </section>
 
