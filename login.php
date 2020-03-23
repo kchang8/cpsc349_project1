@@ -33,7 +33,7 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body" >
-                    <form data-login="form" method="post" action ="scriptsloginscript.php" enctype="multipart/form-data">
+                    <form data-login="form" method="post" action ="scripts/loginscript.php" enctype="multipart/form-data">
                         <div class="form-group pt-5 form-font">
                             <label for="emailInput">Email:</label>
                             <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeHolder="Email" autofocus required>
