@@ -88,7 +88,7 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3"></textarea>
+                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3" placeHolder="Write something here..."></textarea>
                         </div>
 
                         <div class="form-group pt-3 form-font">

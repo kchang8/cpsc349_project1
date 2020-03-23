@@ -16,20 +16,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <nav class="collapse navbar-collapse justify-content-between ml-auto" id="navbarCollapse">
-                <div class="navbar-nav text-right">
-                    <a href="#" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">About</a>
-                    <a href="#" class="nav-item nav-link">PawMe!</a>
-                    <a href="#" class="nav-item nav-link">MyPlayDates</a>
-                    <div class="nav-item dropdown">
+            <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Paw Me!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">My PlayDates</a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </nav>
         </nav>
         
@@ -40,7 +48,12 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <!--owner form info-->
                     <form data-owner-signup="form" method="POST" action="" enctype="multipart/form-data">
+                        <div class="box text-center">
+                            <img src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
+                        </div>
+                       
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
@@ -61,39 +74,89 @@
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="cityInput">City:</label>
-                                <input class="form-control" name="city" id="cityInput" required>
+                                <input class="form-control" name="city" id="cityInput" readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="stateInput">State:</label>
-                                <input class="form-control" name="state" id="stateInput" placeHolder="CA" required>
+                                <input class="form-control" name="state" id="stateInput" readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="ageInput">Age:</label>
-                                <input class="form-control" name="age" id="ageInput" placeHolder="18" required>
+                                <input class="form-control" name="age" id="ageInput" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-6">
                                 <label for="emailInput">Email:</label>
-                                <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeHolder="Email" required>
-                            </div>
-                           
-                            <div class="col-md-6">
-                                <label for="passwordInput">Password:</label>
-                                <small class="text-muted">(Must be at least 6 characters)</small>
-                                <input class="form-control" type="password" name="userPassword" id="passwordInput" value="" placeHolder="Password" required>
+                                <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" readonly>
                             </div>
                         </div>
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3"></textarea>
+                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3" readonly></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        <!--pet form info-->
+
+        <section class="container">
+            <header>
+                <h2>Your Pet's Information</h2>
+            </header>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <form data-pet-signup="form" method="POST" action="" enctype="multipart/form-data">
+                        <div class="box text-center">
+                            <img src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
 
-                        <button type="signIn" class="btn mx-auto d-block btn-default">Sign Up</button>
+                        <div class="form-group row pt-3 form-font">
+                            <div class="col-md-7">
+                                <label for="pNameInput">Pet's name:</label>
+                                <input class="form-control" name="petName" id="pNameInput" readonly>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="genderInput">Gender:</label>
+                                <input class="form-control" id="genderInput" name="gender" readonly>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label for="pAgeInput">Age:</label>
+                                <input class="form-control" name="petAge" id="pAgeInput" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row pt-3 form-font">
+                            <div class="col-md-6">
+                                <label for="animalInput">What animal is your pet?</label>
+                                <input class="form-control" name="animal" id="animalInput" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="breedInput">What breed is your pet?</label>
+                            <input class="form-control" name="breed" id="breedInput" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group pt-3 form-font">
+                            <label for="aboutPetInput">About me, the pet:</label>
+                            <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly></textarea>
+                        </div>
+                        
+                        <div class="row justify-content-around">
+                            <button type="edit" class="btn btn-default">Edit Profile</button>
+                            <button type="delete" class="btn btn-default">Delete Profile</button>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
