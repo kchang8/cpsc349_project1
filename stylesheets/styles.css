@@ -32,6 +32,33 @@
     max-height: 250px;
 }
 
+
+
+
+
+
+.pink-bar{
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.white-bar{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.PawMe-button{
+  width:80px;
+}
+
+.PawsOff-button{
+  width:132px;
+}
+
+
+
+
+
 h5 {
     font-size: 60px;
     font-family: 'Ubuntu', sans-serif;
