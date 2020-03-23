@@ -28,7 +28,7 @@
         
         <section class="container">
             <header>
-                <img class="login-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt ="Paw Me!">
+                <img class="main-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt ="Paw Me!">
                 <h2>Welcome!</h2>
                 <h4>Please enter the following information</h4>
             </header>
@@ -88,7 +88,12 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3"></textarea>
+                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3" placeHolder="Write something here..."></textarea>
+                        </div>
+
+                        <div class="form-group pt-3 form-font">
+                            <label for="ownerPhoto">Upload a picture of yourself:</label>
+                            <input type="file" name="ownerPhoto" id="image"/>
                         </div>
 
                         <button type="signIn" class="btn mx-auto d-block btn-default">Sign Up</button>

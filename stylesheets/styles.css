@@ -10,12 +10,8 @@
     max-height: 55px;
 }
 
-.login-nav-logo {
+.main-nav-logo {
     max-height: 115px;
-}
-
-.nav-item {
-    padding-left: 50px;
 }
 
 .navbar-collapse {
@@ -32,9 +28,26 @@
     max-height: 250px;
 }
 
+.dropdown-menu {
+    min-width: 3rem;
+}
 
+.dropdown-toggle {
+    color: lightgray;
+}
 
+.rounded-circle {
+    max-width: 10rem;
+}
 
+hr {
+    position: relative; 
+    top: 20px; 
+    border: none; 
+    height: 12px; 
+    background:white; 
+    margin-bottom: 50px;
+}
 
 
 .pink-bar{
@@ -88,7 +101,6 @@ body {
 }
 
 .btn {
-    display: flex;
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     background-color: #FF595E;
@@ -99,7 +111,6 @@ body {
     border-radius: 80px;
     line-height: 45px;
     align-items: center;
-    justify-content: center;
     display: inline-block;
     text-decoration: none;
     margin-top: 50px;
