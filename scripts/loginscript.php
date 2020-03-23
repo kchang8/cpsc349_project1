@@ -23,7 +23,7 @@
             $_SESSION["ID"] = $row->ID;
             $_SESSION["err"] = 0;
             echo $row->ID;
-            header ("Location: home.html");
+            header ("Location: ../home.html");
         }
     }
 ?>

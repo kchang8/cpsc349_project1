@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -34,7 +37,7 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form data-owner-signup="form" method="POST" action="" enctype="multipart/form-data">
+                    <form data-owner-signup="form" method="POST" action="scripts/addOwner.php" enctype="multipart/form-data">
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
@@ -95,7 +98,11 @@
                             <label for="ownerPhoto">Upload a picture of yourself:</label>
                             <input type="file" name="ownerPhoto" id="image"/>
                         </div>
-
+                        <?php
+                            if($_SESSION["err"]==1){
+                                echo "account already exists under that email";
+                            }
+                        ?>
                         <button type="signIn" class="btn mx-auto d-block btn-default">Sign Up</button>
                     </form>
                 </div>
