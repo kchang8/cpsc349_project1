@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href= "stylesheets/styles.css">
-    </head> 
+    </head>
     <body class="img-fluid">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
             <a href="#" class="navbar-brand">
@@ -57,7 +57,7 @@
                         <div class="box text-center">
                             <img src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
-                       
+
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
@@ -108,7 +108,7 @@
             </div>
         </section>
 
-      
+
         <!--pet form info-->
         <section class="container">
             <header>
@@ -154,17 +154,20 @@
                             <label for="aboutPetInput">About me, the pet:</label>
                             <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
                         </div>
-                     
+
                         <div id="pop-up" class="modal col-12 justify-content-around align-self-center text-align-center">
                             <div Payment-message = "response"> Thanks for clicking. That felt good. </div>
                             <a href="#" rel="modal:close">Close</a>
                         </div>
-                      
+
                         <div class="row justify-content-around">
-                            <button id ="edit-button" type="edit" class="btn btn-default">Edit Profile</button>
-                            <button id ="delete-button" type="delete" class="btn btn-default">Delete Profile</button>
+                            <button type="edit" class="btn btn-default">Edit Profile</button>
+                            <button type="delete" class="btn btn-default">Edit Pet</button>
                         </div>
-                        
+
+                        <div class="row justify-content-center">
+                            <button type="delete" class="btn btn-default justify-content-center">Delete Account</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -180,5 +183,5 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="scripts/editprofile.js" charset="utf-8"></script>
     </body>
-    
+
 </html>
