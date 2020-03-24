@@ -155,9 +155,12 @@
                         
                         <div class="row justify-content-around">
                             <button type="edit" class="btn btn-default">Edit Profile</button>
-                            <button type="delete" class="btn btn-default">Delete Profile</button>
+                            <button type="delete" class="btn btn-default">Edit Pet</button>
                         </div>
                         
+                        <div class="row justify-content-center">
+                            <button type="delete" class="btn btn-default justify-content-center">Delete Account</button>
+                        </div>
                     </form>
                 </div>
             </div>
