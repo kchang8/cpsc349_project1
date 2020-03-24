@@ -1,6 +1,7 @@
 <?php
     session_start();
     $name = $_POST['emailAddress'];
+    include 'Database_constants.php';
     $query = "SELECT email, password, ID FROM owners WHERE email = '$name'";
     $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
     if(!$conn){

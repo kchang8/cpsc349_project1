@@ -27,7 +27,7 @@
         //THIS IS A DEBUG FUNCTION, NOT INTENDED FOR PRODUCTION
         function init_tables(){
             $query = "CREATE TABLE `$this->petDatabase`.`owners` ( `ID` INT NOT NULL AUTO_INCREMENT , `fname` VARCHAR(64) NOT NULL ";
-            $query.= ", `lname` VARCHAR(64) NOT NULL , `city` VARCHAR(64) NOT NULL , `state` VARCHAR(64) NOT NULL  , `age` INT NOT NULL , `email` VARCHAR(254) ";
+            $query.= ", `lname` VARCHAR(64) NOT NULL , `city` VARCHAR(64) NOT NULL , `state` VARCHAR(64) NOT NULL  , `age` INT NOT NULL , `email` VARCHAR(254) NOT NULL ,`bio` VARCHAR(254) ";
             $query.= "NOT NULL , `password` VARCHAR(254) NOT NULL , `gender` VARCHAR(4) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
             echo $query;
             $this->conn->query($query);
@@ -39,8 +39,8 @@
             $this->conn->query($query);
 
             $query = "CREATE TABLE `$this->petDatabase`.`playdates` ( `PetID_creator` int(11) NOT NULL, `OwnerID_creator` ";
-            $query.= "int(11) NOT NULL, `PetID_responder` int(11) NOT NULL, `OwnerID_responder` int(11) NOT NULL, `Time` date NOT NULL, ";
-            $query.= "`State` varchar(4) NOT NULL, `City` int(64) NOT NULL, `Confirmed` tinyint(1) NOT NULL DEFAULT 0 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            $query.= "int(11) NOT NULL, `PetID_responder` int(11) NOT NULL, `OwnerID_responder` int(11) NOT NULL, `Time` DATETIME  NOT NULL, ";
+            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->query($query);
             
             
