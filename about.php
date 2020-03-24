@@ -29,10 +29,10 @@
                         <a href="home.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link active">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">Paw Me!</a>
+                        <a href="paw.php" class="nav-link">Paw Me!</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">My PlayDates</a>
@@ -52,8 +52,8 @@
                     else {
                 ?>
                 <div class="navbar-nav text-right">
-                    <a href="landing.php" class="nav-item nav-link active">Home</a>
-                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="landing.php" class="nav-item nav-link">Home</a>
+                    <a href="#" class="nav-item nav-link active">About</a>
                     <a href="ownerSignup.php" class="nav-item nav-link">Join</a>
                     <a href="login.php" class="nav-item nav-link">Login</a>
                 </div>
