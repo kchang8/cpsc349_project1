@@ -103,11 +103,15 @@
                                 echo "account already exists under that email";
                             }
                         ?>
-                        <button type="signIn" class="btn mx-auto d-block btn-default">Sign Up</button>
+                        <button type="signIn" class="butn mx-auto d-block btn-default">Sign Up</button>
                     </form>
                 </div>
             </div>
         </section>
+
+        <footer class="page-footer font-small pt-3">
+            <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
+        </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

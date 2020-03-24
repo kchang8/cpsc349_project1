@@ -18,11 +18,11 @@
         }
     });
 
-    delete_button.on('click',function(event){
+    delete_button.on('click', function(event){
         event.preventDefault();
         console.log("delete");
-        $("#pop-up").modal({
-            show: true
+        $(document).ready(function() {
+            $("#deleteButton").modal('show');
         }); 
     });
 

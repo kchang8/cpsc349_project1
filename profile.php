@@ -155,19 +155,37 @@
                             <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
                         </div>
 
-                        <div id="pop-up" class="modal col-12 justify-content-around align-self-center text-align-center">
-                            <div Payment-message = "response"> Thanks for clicking. That felt good. </div>
-                            <a href="#" rel="modal:close">Close</a>
-                        </div>
-
+                        <!--row of buttons with edit profile and edit pet buttons-->
                         <div class="row justify-content-around">
-                            <button id = "edit-button" type="edit" class="btn btn-default">Edit Profile</button>
-                            <button type="delete" class="btn btn-default">Edit Pet</button>
+                            <button id ="edit-button" type="edit" class="butn btn-default">Edit Profile</button>
+                            <button type="delete" class="butn btn-default">Edit Pet</button>
                         </div>
 
+                        <!--row of only the delete button-->
                         <div class="row justify-content-center">
-                            <button id = "delete-button" type="delete" class="btn btn-default justify-content-center">Delete Account</button>
+                            <button id ="delete-button" type="delete" class="butn btn-default justify-content-center">Delete Account</button>
                         </div>
+
+                        <!--modal popup for delete button-->
+                        <div id="deleteButton" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Confirmation</h3>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete your account?</p>
+                                        <p class="text-secondary"><small>If you delete your account, all your information will be lost.</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

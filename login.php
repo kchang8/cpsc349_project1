@@ -53,7 +53,7 @@
                         <?php
                             }
                         ?>
-                        <button type="signIn" class="btn mx-auto d-block btn-default">Sign In</button>
+                        <button type="signIn" class="butn mx-auto d-block btn-default">Sign In</button>
                     </form>
                 </div>
             </div>

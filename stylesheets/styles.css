@@ -23,16 +23,13 @@
     display: flex;
     justify-content: space-between;
 }
-.reveal-modal {
-    background:#e1e1e1; 
-    margin: 0 auto;
-    width:160px; 
-    position:relative; 
-    z-index:41;
-    top: 25%;
-    padding:30px; 
 
+.modal {
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
 }
+
 .body-logo {
     max-height: 250px;
 }
@@ -113,7 +110,7 @@ body {
     align-content: center;
 }
 
-.btn {
+.butn {
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     background-color: #FF595E;
