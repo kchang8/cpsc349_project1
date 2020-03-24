@@ -70,20 +70,24 @@ hr {
 
 
 
+h2, h4 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #333C59;
+    margin-top: 30px;
+    text-align: center;
+}
 
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #333C59;
+    text-align: left;
+}
 
 h5 {
     font-size: 60px;
     font-family: 'Ubuntu', sans-serif;
     color: #333C59;
     margin-top: 30px;
-}
-
-h2, h4 {
-    font-family: 'Ubuntu', sans-serif;
-    color: #333C59;
-    margin-top: 30px;
-    text-align: center;
 }
 
 body {
@@ -125,4 +129,9 @@ body {
 
 p {
     color:  #333C59;
+}
+
+.pawButtons {
+    margin-top: 50px;
+    max-width: 10rem;
 }
