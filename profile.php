@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <title>Profile</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href= "stylesheets/styles.css">
-    </head>
+    </head> 
     <body class="img-fluid">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
             <a href="#" class="navbar-brand">
@@ -43,7 +44,7 @@
                 </ul>
             </nav>
         </nav>
-        
+
         <section class="container">
             <header>
                 <img class="main-nav-logo mx-auto d-block" src="imgs/AccountLogo.png" alt ="Account Logo">
@@ -109,7 +110,6 @@
 
       
         <!--pet form info-->
-
         <section class="container">
             <header>
                 <h2>Your Pet's Information</h2>
@@ -154,7 +154,12 @@
                             <label for="aboutPetInput">About me, the pet:</label>
                             <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
                         </div>
-                        
+                     
+                        <div id="pop-up" class="modal col-12 justify-content-around align-self-center text-align-center">
+                            <div Payment-message = "response"> Thanks for clicking. That felt good. </div>
+                            <a href="#" rel="modal:close">Close</a>
+                        </div>
+                      
                         <div class="row justify-content-around">
                             <button id ="edit-button" type="edit" class="btn btn-default">Edit Profile</button>
                             <button id ="delete-button" type="delete" class="btn btn-default">Delete Profile</button>
@@ -168,10 +173,12 @@
         <footer class="page-footer font-small pt-3">
             <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
         </footer>
-        <script src="scripts/editprofile.js" charset="utf-8"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="scripts/editprofile.js" charset="utf-8"></script>
     </body>
     
 </html>

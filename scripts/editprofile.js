@@ -2,7 +2,7 @@
     'use strict';
     var $ = window.jQuery;
     var edit_button = $("#edit-button");
-    var delete_button = $("#delete-button"):
+    var delete_button = $("#delete-button");
     var toggle = 0;
 
     edit_button.on('click', function(event){
@@ -20,6 +20,10 @@
 
     delete_button.on('click',function(event){
         event.preventDefault();
+        console.log("delete");
+        $("#pop-up").modal({
+            show: true
+        }); 
     });
 
 
