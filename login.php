@@ -19,7 +19,7 @@
 
             <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
                 <div class="navbar-nav text-right">
-                    <a href="#" class="nav-item nav-link e">Home</a>
+                    <a href="#" class="nav-item nav-link">Home</a>
                     <a href="#" class="nav-item nav-link">About</a>
                     <a href="#" class="nav-item nav-link">Join</a>
                     <a href="#" class="nav-item nav-link active">Login</a>

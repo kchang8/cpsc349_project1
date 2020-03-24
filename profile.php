@@ -34,6 +34,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </li>

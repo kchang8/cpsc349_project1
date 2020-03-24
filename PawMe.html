@@ -5,9 +5,9 @@
         <title>Paw Me!</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href= "stylesheets/styles.css">
+        <link rel="stylesheet" href="stylesheets/styles.css">
     </head>
-    <body>
+    <body class="img-fluid">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
         <a href="#" class="navbar-brand">
             <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo" >
@@ -41,15 +41,16 @@
           </nav>
       </nav>
 
-      <div class="container" id= "PawMe-content">
+      <section class="container">
+        <header>
+          <img class="main-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt ="Account Logo">
+        </header>
 
         <div class="row justify-content-center white-bar">
-
-
             <!--PET DESCRIPTION -->
-            <div class="card-column text-left" id="petdes-col">
+            <div class="card-columns text-left" id="petdes-col">
               <h2>Pet Name</h2>
-              <span> Owner Name </span>
+              <span>Owner Name</span>
               <span> Age </span>
 
                 <div class="card" style="width:350px">
@@ -58,12 +59,15 @@
                      <h4 class="card-title">John Doe</h4>
                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
                    </div>
-                 </div>
-              </div>
+                </div>
+            </div>
+          </div>
+
+          
 
 
             <!--Location-->
-            <div class="col-md-2  text-center rounded"id="colum1">
+            <div class="col-md-2  text-center rounded" id="colum1">
                 <h4> Location </h4>
             </div>
 
@@ -83,7 +87,7 @@
                  </div>
             </div>
         </div>
-    </div>
+      </section>
 
     <!--PINK BAR PAWS CONTENT -->
     <div class="container"  id= "PawMePawsOff-content">
