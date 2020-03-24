@@ -19,7 +19,7 @@
             <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="home.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">About</a>
@@ -33,6 +33,7 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
                         <div class="dropdown-menu">
+                            <a href="profile.php" class="dropdown-item">View</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item">Log Out</a>
