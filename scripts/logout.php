@@ -4,6 +4,7 @@
         if(isset($_SESSION)){
             unset($_SESSION["ID"]);
         }
-        header ("Location: ../home.html");
+        $_SESSION["err"] = 0;
+        header ("Location: ../landing.php");
 
 ?>

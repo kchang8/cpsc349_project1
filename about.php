@@ -20,7 +20,7 @@
         </a>
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
             <div class="navbar-nav text-right">
-                <a href="home.php" class="nav-item nav-link active">Home</a>
+                <a href="landing.php" class="nav-item nav-link active">Home</a>
                 <a href="#" class="nav-item nav-link">About</a>
                 <a href="ownerSignup.php" class="nav-item nav-link">Join</a>
                 <a href="login.php" class="nav-item nav-link">Login</a>

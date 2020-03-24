@@ -13,7 +13,7 @@
     }
     else{     
         if(mysqli_num_rows($result)==0){ // If the number of rows return is 0 then that means that there is no username 
-            $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`) ";
+           
             $fname = $_POST['firstName'];
             $lname =  $_POST['lastName'];
             $city =  $_POST['city'];
@@ -24,12 +24,15 @@
             $gender = $_POST['gender'];
             $query = "SELECT email, password, ID FROM owners WHERE email = '$email' AND password = '$pass'";
             $result = mysqli_query($conn,$query); 
-            if(mysqli_num_rows($result)==0){
+            if(mysqli_num_rows($result)!=0){
                 $_SESSION["err"] = 1;
                 header ("Location: ../ownerSignup.php");
             }
+            $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`) ";
             $query.= "VALUES ('$fname','$lname','$city','$state',$age,'$email','$pass','$gender');";
             echo $query;
+            $log = "<script> console.log(`$query`) </script>";
+            echo $log;
             $result = mysqli_query($conn,$query); 
             if(!mysqli_commit($conn)){
                 print("Transaction Failed");
@@ -39,10 +42,11 @@
             $result = mysqli_query($conn,$query); 
             $row = mysqli_fetch_object($result);
             $_SESSION["ID"] = $row->ID;
+            setcookie('pet-owner', $row->ID, time()+3600, "/");
             $_SESSION["err"] = 0;
             $log = "<script> console.log(`$row->ID`) </script>";
             echo $log;
-            header ("Location: ../home.html");
+            header ("Location: ../home.php");
         }
         else{
             $_SESSION["err"] = 1;

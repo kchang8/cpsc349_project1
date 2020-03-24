@@ -14,7 +14,7 @@
             {
                 session_start();
                 $_SESSION["ID"] = $_COOKIE['pet-owner'];
-                header ("Location: home.html");
+                header ("Location: home.php");
             }
         ?>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
@@ -55,9 +55,11 @@
                         </div>
                         <?php
                             session_start();
-                            if(isset($_SESSION["err"]) && $_SESSION["err"]==1){
+                            if(isset($_SESSION["err"]) && $_SESSION["err"] == 1){
+                            $_SESSION["err"] = 0;
                         ?>
                              <p>Invalid password or email</p>
+                             
                         <?php
                             }
                         ?>

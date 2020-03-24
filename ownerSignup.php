@@ -99,7 +99,7 @@
                             <input type="file" name="ownerPhoto" id="image"/>
                         </div>
                         <?php
-                            if($_SESSION["err"]==1){
+                            if(isset($_SESSION["err"]) && $_SESSION["err"]==1){
                                 echo "account already exists under that email";
                             }
                         ?>

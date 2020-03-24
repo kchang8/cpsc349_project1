@@ -4,6 +4,7 @@
         <?php
             session_start();
             include 'scripts/redirect_to_login.php';
+            include 'scripts/getOwner.php';
             redirect_to_login();
         ?>
         <meta charset="utf-8">
@@ -62,45 +63,118 @@
                             <input type="file" id="ownerupload" style="display:none"/> 
                             <img id = "owner-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
+                        <?php
+                            $row = getOwner();
+                        ?>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
-                                <input class="form-control" type="text" name="firstName" id="fnameInput" readonly>
+                                <input class="form-control" type="text" name="firstName" id="fnameInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->fname\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"First Name\"";
+                                    }
+                                    
+                                ?>       
+                                readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="lnameInput">Last name:</label>
-                                <input class="form-control" name="lastName" id="lnameInput" readonly>
+                                <input class="form-control" name="lastName" id="lnameInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->lname\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"last Name\"";
+                                    }
+                                    
+                                ?>   readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="genderInput">Gender:</label>
-                                <input class="form-control" id="genderInput" name="gender" readonly>
+                                <input class="form-control" id="genderInput" name="gender"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->gender\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"Gender\"";
+                                    }
+                                ?>   readonly>
                             </div>
                         </div>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="cityInput">City:</label>
-                                <input class="form-control" name="city" id="cityInput" readonly>
+                                <input class="form-control" name="city" id="cityInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->city\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"city\"";
+                                    }
+                                    
+                                ?>   readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="stateInput">State:</label>
-                                <input class="form-control" name="state" id="stateInput" readonly>
+                                <input class="form-control" name="state" id="stateInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->state\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"First Name\"";
+                                    }
+                                    
+                                ?>   readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="ageInput">Age:</label>
-                                <input class="form-control" name="age" id="ageInput" readonly>
+                                <input class="form-control" name="age" id="ageInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->age\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"age\"";
+                                    }
+                                    
+                                ?>   readonly>
                             </div>
                         </div>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-6">
                                 <label for="emailInput">Email:</label>
-                                <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" readonly>
+                                <input class="form-control" type="email" name="emailAddress" id="emailInput"
+                                <?php
+                                    if(isset($row->fname)){
+                                        $x = "value = \"$row->email\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"email\"";
+                                    }
+                                    
+                                ?>   value="" readonly>
                             </div>
                         </div>
 
@@ -159,7 +233,7 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutPetInput">About me, the pet:</label>
-                            <textarea class="pet-input form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
+                            <textarea class="pet-input form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true"></textarea>
                         </div>
 
                         <!--row of buttons with edit profile and edit pet buttons-->
