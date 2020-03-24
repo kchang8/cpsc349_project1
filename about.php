@@ -19,12 +19,47 @@
             <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
         </a>
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
-            <div class="navbar-nav text-right">
-                <a href="landing.php" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">About</a>
-                <a href="ownerSignup.php" class="nav-item nav-link">Join</a>
-                <a href="login.php" class="nav-item nav-link">Login</a>
-            </div>
+           
+                <?php
+                    if(isset($_COOKIE['pet-owner'])){
+                        $_SESSION["ID"] = $_COOKIE['pet-owner'];
+                ?>
+                    <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="home.php" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Paw Me!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">My PlayDates</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                        <div class="dropdown-menu">
+                            <a href="profile.php" class="dropdown-item">View</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="scripts/logout.php" class="dropdown-item">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+                <?php
+                    }
+                    else {
+                ?>
+                <div class="navbar-nav text-right">
+                    <a href="landing.php" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="ownerSignup.php" class="nav-item nav-link">Join</a>
+                    <a href="login.php" class="nav-item nav-link">Login</a>
+                </div>
+                <?php
+                    }
+                ?>
         </nav>
     </nav>
 

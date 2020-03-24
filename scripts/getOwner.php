@@ -1,9 +1,10 @@
 <?php
     function getOwner()
     {
+        include  'Database_constants.php';
         $ID = $_SESSION["ID"];
         $query = "SELECT * FROM `owners` WHERE ID =$ID";
-        $conn = mysqli_connect("localhost","San","1234", "petdatabase");
+        $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query); 
         if (!$result){
             $_SESSION["err"] = 1;

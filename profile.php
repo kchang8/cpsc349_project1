@@ -78,8 +78,7 @@
                                     }
                                     else{
                                         echo "value = \"First Name\"";
-                                    }
-                                    
+                                    }           
                                 ?>       
                                 readonly>
                             </div>

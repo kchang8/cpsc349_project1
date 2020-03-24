@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'Database_constants.php';
     if(isset($_COOKIE['pet-owner']))
     {
         echo  "<script> console.log(\"The cookie is set\") </script>";
@@ -7,7 +8,7 @@
     $name = $_POST['emailAddress'];
     $pswrd = $_POST['userPassword'];
     $query = "SELECT email, password, ID FROM owners WHERE email = '$name' AND password = '$pswrd'";
-    $conn = mysqli_connect("localhost","San","1234", "petdatabase");
+    $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
     if(!$conn){
         echo "Cannon connect to MySQL. " . mysqli_connect_error();
         exit();

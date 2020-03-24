@@ -25,7 +25,7 @@
                         <a href="home.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="about.php" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="paw.php" class="nav-link">Paw Me!</a>
