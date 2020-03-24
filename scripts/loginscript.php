@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(isset($_COOKIE['pet-owner']))
+    {
+        echo  "<script> console.log(\"The cookie is set\") </script>";
+    }
     $name = $_POST['emailAddress'];
     $pswrd = $_POST['userPassword'];
     $query = "SELECT email, password, ID FROM owners WHERE email = '$name' AND password = '$pswrd'";
@@ -16,14 +20,23 @@
 
         if(mysqli_num_rows($result)==0){
             $_SESSION["err"] = 1;
-            header ("Location: login.php");
+            header ("Location: ../login.php");
         }
         else{
             $row = mysqli_fetch_object($result);
             $_SESSION["ID"] = $row->ID;
+            setcookie('pet-owner', $row->ID, time()+3600, "/");
             $_SESSION["err"] = 0;
-            echo $row->ID;
-            header ("Location: ../home.html");
+            $x =  "<script> console.log(\"The Row ID is:\"+ '$row->ID') </script>";
+            echo $x;
+            $y = $_COOKIE['pet-owner'];
+            $z =  "<script> console.log('$y') </script>";
+            echo $z;
+            if(isset($_COOKIE['pet-owner']))
+            {
+                echo  "<script> console.log(\"The cookie is set\") </script>";
+            }
+            header ("Location: ../profile.php");
         }
     }
 ?>
