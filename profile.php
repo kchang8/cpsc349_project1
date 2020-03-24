@@ -43,7 +43,7 @@
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="scripts/logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </li>
                 </ul>
