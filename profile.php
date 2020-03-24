@@ -58,9 +58,9 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!--owner form info-->
-                    <form data-owner-signup="form" method="POST" action="" enctype="multipart/form-data">
+                    <form id = "owner-info" data-owner-signup="form" method="POST" action="updateOwner.php" enctype="multipart/form-data">
                         <div class="box text-center">
-                            <input type="file" id="ownerupload" style="display:none"/> 
+                            <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
                             <img id = "owner-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
                         <?php
@@ -70,7 +70,7 @@
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="fnameInput">First name:</label>
-                                <input class="form-control" type="text" name="firstName" id="fnameInput"
+                                <input class=" owner-input form-control" type="text" name="firstName" id="fnameInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->fname\"";
@@ -85,7 +85,7 @@
 
                             <div class="col-md-4">
                                 <label for="lnameInput">Last name:</label>
-                                <input class="form-control" name="lastName" id="lnameInput"
+                                <input class=" owner-input form-control" name="lastName" id="lnameInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->lname\"";
@@ -100,7 +100,7 @@
 
                             <div class="col-md-4">
                                 <label for="genderInput">Gender:</label>
-                                <input class="form-control" id="genderInput" name="gender"
+                                <input class="owner-input form-control" id="genderInput" name="gender"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->gender\"";
@@ -116,7 +116,7 @@
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
                                 <label for="cityInput">City:</label>
-                                <input class="form-control" name="city" id="cityInput"
+                                <input class="owner-input form-control" name="city" id="cityInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->city\"";
@@ -131,7 +131,7 @@
 
                             <div class="col-md-4">
                                 <label for="stateInput">State:</label>
-                                <input class="form-control" name="state" id="stateInput"
+                                <input class="owner-input form-control" name="state" id="stateInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->state\"";
@@ -146,7 +146,7 @@
 
                             <div class="col-md-4">
                                 <label for="ageInput">Age:</label>
-                                <input class="form-control" name="age" id="ageInput"
+                                <input class="owner-input form-control" name="age" id="ageInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->age\"";
@@ -163,7 +163,7 @@
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-6">
                                 <label for="emailInput">Email:</label>
-                                <input class="form-control" type="email" name="emailAddress" id="emailInput"
+                                <input class="owner-input form-control" type="email" name="emailAddress" id="emailInput"
                                 <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->email\"";
@@ -179,7 +179,7 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <textarea class="form-control" name="aboutMe" id="aboutInput" rows="3" readonly></textarea>
+                            <textarea class="owner-input form-control" name="aboutMe" id="aboutInput" rows="3" readonly></textarea>
                         </div>
                     </form>
                 </div>
@@ -237,8 +237,8 @@
 
                         <!--row of buttons with edit profile and edit pet buttons-->
                         <div class="row justify-content-around">
-                            <button id ="edit-button" type="edit" class="butn btn-default">Edit Profile</button>
-                            <button id ="edit-pet" type="delete" class="butn btn-default">Edit Pet</button>
+                            <button id ="edit-profile" type="edit" class="butn btn-default">Edit Profile</button>
+                            <button id ="edit-pet" type="edit" class="butn btn-default">Edit Pet</button>
                         </div>
 
                         <!--row of only the delete button-->
