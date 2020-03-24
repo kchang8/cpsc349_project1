@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <?php
+            session_start();
+            include 'scripts/redirect_to_login.php';
+            redirect_to_login();
+        ?>
         <meta charset="utf-8">
         <title>Profile</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -37,7 +42,7 @@
                             <a href="profile.php" class="dropdown-item">View</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="scripts/logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </li>
                 </ul>
@@ -54,7 +59,8 @@
                     <!--owner form info-->
                     <form data-owner-signup="form" method="POST" action="" enctype="multipart/form-data">
                         <div class="box text-center">
-                            <img src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
+                            <input type="file" id="ownerupload" style="display:none"/> 
+                            <img id = "owner-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
 
                         <div class="form-group row pt-3 form-font">
@@ -117,47 +123,49 @@
                 <div class="panel-body">
                 <form id = "pet-info" data-pet-signup="form" method="POST" action="scripts/update_pet.php" enctype="multipart/form-data">
                         <div class="box text-center">
-                            <img src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
+                            <input type="file" id="petupload" style="display:none"/> 
+                            <img id="pet-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
                         </div>
 
                         <div class="form-group row pt-3 form-font">
+                            <input class="pet-input form-control" name="petID" id="pNameInput" readonly="readonly" style="display:none">
                             <div class="col-md-7">
                                 <label for="pNameInput">Pet's name:</label>
-                                <input class="form-control" name="petName" id="pNameInput" readonly="readonly">
+                                <input class="pet-input form-control" name="petName" id="pNameInput" readonly="readonly">
                             </div>
 
                             <div class="col-md-3">
                                 <label for="genderInput">Gender:</label>
-                                <input class="form-control" id="genderInput" name="gender" readonly="readonly">
+                                <input class=" pet-input form-control" id="genderInput" name="gender" readonly="readonly">
                             </div>
 
                             <div class="col-md-2">
                                 <label for="pAgeInput">Age:</label>
-                                <input class="form-control" name="petAge" id="pAgeInput" readonly="readonly">
+                                <input class="pet-input form-control" name="petAge" id="pAgeInput" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-6">
                                 <label for="animalInput">What animal is your pet?</label>
-                                <input class="form-control" name="animal" id="animalInput" readonly="readonly">
+                                <input class="pet-input form-control" name="animal" id="animalInput" readonly="readonly">
                             </div>
 
                             <div class="col-md-6">
                                 <label for="breedInput">What breed is your pet?</label>
-                                <input class="form-control" name="breed" id="breedInput" readonly="readonly">
+                                <input class="pet-input form-control" name="breed" id="breedInput" readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutPetInput">About me, the pet:</label>
-                            <textarea class="form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
+                            <textarea class="pet-input form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true">yoyoy</textarea>
                         </div>
 
                         <!--row of buttons with edit profile and edit pet buttons-->
                         <div class="row justify-content-around">
                             <button id ="edit-button" type="edit" class="butn btn-default">Edit Profile</button>
-                            <button type="delete" class="butn btn-default">Edit Pet</button>
+                            <button id ="edit-pet" type="delete" class="butn btn-default">Edit Pet</button>
                         </div>
 
                         <!--row of only the delete button-->
@@ -179,7 +187,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Delete</button>
+                                        <button id = "confirm-delete" type="button" class="btn btn-primary">Delete</button>
                                     </div>
                                 </div>
                             </div>

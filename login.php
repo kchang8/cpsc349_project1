@@ -9,6 +9,14 @@
         <link rel="stylesheet" href= "stylesheets/styles.css">
     </head>
     <body>
+        <?php
+            if(isset($_COOKIE['pet-owner']))
+            {
+                session_start();
+                $_SESSION["ID"] = $_COOKIE['pet-owner'];
+                header ("Location: home.html");
+            }
+        ?>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
             <a href="#" class="navbar-brand">
               <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo" >
