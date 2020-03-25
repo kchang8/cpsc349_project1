@@ -1,14 +1,10 @@
 <?php 
-session_start();
- include 'scripts/petscripts.php';
- include 'scripts/Database_constants.php';
- include 'scripts/redirect_to_login.php';
- include 'scripts/getOwner.php';
- include 'scripts/getPet.php';
-$db = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
-$query="select * from playdates";
-$result=mysqli_query($db, $query)
-//redirect_to_login();
+  session_start();
+  include 'scripts/petscripts.php';
+  include 'scripts/Database_constants.php';
+  include 'scripts/redirect_to_login.php';
+  include 'scripts/getOwner.php';
+  redirect_to_login();
 ?>
 
 <!DOCTYPE html>
@@ -51,12 +47,12 @@ $result=mysqli_query($db, $query)
     <?php $row = getOwner();
           $row2 = getPet();
     ?>
-  
+
   <section>
     <p><b>Your Name: <?php echo $row->fname ?> </b></p>
     <p><b> Pet Name: <?php echo $row2->Name ?></b></p>
   </section>
-  
+
   <section>
     <table class="table table-light table-striped">
       <thead class="thead-dark">
@@ -98,10 +94,10 @@ $result=mysqli_query($db, $query)
                              class="rounded-circle" alt="placeholder image">
         </td>
       </tr>
-      <?php 
+      <?php
         }
     ?>
-      <!-- <tbody> 
+      <!-- <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
