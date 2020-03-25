@@ -193,7 +193,7 @@
     </table>
 
 
-    <button onClick = "location.href='petSignup.php'"  type="join" class="butn mx-auto d-block btn-default">Confirm!</button>
+    <button onClick = "location.href='petSignup.html'"  type="join" class="butn mx-auto d-block btn-default">Confirm!</button>
   </section>
 
 
