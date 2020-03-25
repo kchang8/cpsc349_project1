@@ -11,8 +11,8 @@
   $result = mysqli_query($conn,$query); 
   if($result == FALSE){
     //$_SESSION["err"] = 1;
-    header ("Location: ../home.php");
-    
+    //header ("Location: ../home.php");
+    exit();
   }
 
   redirect_to_login();
