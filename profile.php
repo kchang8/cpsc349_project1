@@ -109,20 +109,18 @@
 
                             <div class="col-md-4">
                                 <label for="genderInput">Gender:</label>
-                                <select class="owner-input form-control" id="genderInput" name="gender" disabled="true">
+                                <select class="owner-input-drop form-control" id="genderInput" name="gender" disabled>
                                     <option value="">Select</option>
-                                    <option value="F">F</option>
-                                    <option value="M">M</option>
-                                    <?php
-                                    if(isset($row->fname)){
-                                        $x = "value = \"$row->gender\"";
-                                        echo $x;
-                                    }
-                                    else{
-                                        echo "value = \"Gender\"";
-                                    }
-                                    
+                                    <option value="F"                                     
+                                    <?php if(isset($row->gender) && $row->gender == "F"){
+                                        $x = "selected='selected'";echo $x;}
                                     ?>
+                                    >F</option>
+                                    <option value="M"
+                                    <?php
+                                        if(isset($row->gender) && $row->gender == "M"){
+                                        $x = "selected='selected'";echo $x;}
+                                    ?>>M</option>
                                 </select>
                             </div>
                         </div>

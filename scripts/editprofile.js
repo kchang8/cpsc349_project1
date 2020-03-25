@@ -27,6 +27,8 @@
         if(toggleowner ===0){
             console.log("We prevented the default edit event");
             $(".owner-input").attr("readonly", false);
+            $(".owner-input-drop").removeAttr("disabled");
+            $(".owner-input-drop").attr("enabled");
             edit_profile.text("Save Changes");
             toggleowner = 1;
         }
@@ -42,7 +44,6 @@
     owner_picture.on('click',function(event){
         if(toggleowner ===1){
             $("#ownerpicture").trigger('click');
-            $("#insert").trigger('click');
         }
 
     });
