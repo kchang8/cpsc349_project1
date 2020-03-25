@@ -26,7 +26,7 @@
                 ?>
                     <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a href="home.php" class="nav-link">Home</a>
+                        <a href="landing.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link active">About</a>
@@ -35,7 +35,7 @@
                         <a href="paw.php" class="nav-link">Paw Me!</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">My PlayDates</a>
+                        <a href="playdatedate" class="nav-link">My PlayDates</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>

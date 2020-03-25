@@ -34,7 +34,7 @@
             
             $query =    "CREATE TABLE `$this->petDatabase`.`pets` ( `ID` INT NOT NULL, `OwnerID` INT NOT NULL, `Name` ";
             $query .=   "varchar(64) NOT NULL, `Species` varchar(64) NOT NULL, `Breed` varchar(64) NOT NULL, `Age` int(11) NOT NULL, ";
-            $query .=   "`Bio` varchar(512) NOT NULL,`image` MEDIUMBLOB NULL DEFAULT NULL, PRIMARY KEY (`ID`)) ENGINE=InnoDB;";
+            $query .=   "`gender` VARCHAR(4) NOT NULL, `Bio` varchar(512) NOT NULL,`image` MEDIUMBLOB NULL DEFAULT NULL, PRIMARY KEY (`ID`)) ENGINE=InnoDB;";
 
             $this->conn->query($query);
 

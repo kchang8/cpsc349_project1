@@ -22,7 +22,7 @@
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a href="home.php" class="nav-link active">Home</a>
+                        <a href="landing.php" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="about.php" class="nav-link">About</a>
