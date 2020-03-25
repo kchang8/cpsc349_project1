@@ -84,18 +84,18 @@
 
 
 
-                        <h3 class="card-title"> <?php echo $row3->fname ?> </h3>
+                        <h3 class="card-title"> <?php echo $row3->fname; ?> </h3>
 
                         <ul class="card-text">
-                            <li><b>Age:</b> <?php echo $row3->age ?></li>
-                            <li><b>Gender:</b> <?php echo $row3->gender ?></li>
+                            <li><b>Age:</b> <?php echo $row3->age; ?></li>
+                            <li><b>Gender:</b> <?php echo $row3->gender; ?></li>
                             <li><b>Location:</b></li>
                                 <ul>
-                                    <li><b>City:</b> <?php echo $row3->city ?></li>
-                                    <li><b>State:</b> <?php echo $row3->state ?></li>
+                                    <li><b>City:</b> <?php echo $row3->city; ?></li>
+                                    <li><b>State:</b> <?php echo $row3->state; ?></li>
                                 </ul>
-                            <li><p><b>About me:</b> <?php echo $row3->bio ?></p></li>
-                            
+                            <li><p><b>About me:</b> <?php echo $row3->bio; ?></p></li>
+
                         </ul>
                     </div>
                 </div>
@@ -114,15 +114,15 @@
                      class="card-img-top" alt="pet photo">
                     <div class="card-body">
 
-                        <h3 class="card-title"><?php echo $row2->Name?></h3>
+                        <h3 class="card-title"><?php echo $row2->Name; ?></h3>
                         <ul class="card-text">
-                            <li><b>Age:</b><?php echo $row2->Age?></li>
+                            <li><b>Age:</b><?php echo $row2->Age; ?></li>
                             <li><b>Pet attributes:</b></li>
                                 <ul>
-                                    <li><b>Animal/Species:</b> <?php echo $row2->Species?></li>
-                                    <li><b>Breed:</b> <?php echo $row2->Breed?></li>
+                                    <li><b>Animal/Species:</b> <?php echo $row2->Species; ?></li>
+                                    <li><b>Breed:</b> <?php echo $row2->Breed; ?></li>
                                 </ul>
-                            <li><p><b>About me:</b> <?php echo $row2->Bio?></p></li>
+                            <li><p><b>About me:</b> <?php echo $row2->Bio; ?></p></li>
 
                         </ul>
                     </div>
@@ -131,30 +131,11 @@
 
             <div class="row justify-content-around">
                 <input class="pawButtons" type="image" onClick="history.go(0)" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
-                <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
+                <input class="pawButtons" type="image" onClick="pawMe($row, $row2, $row3)" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
 
 
             </div>
-            <!-- Modal -->
-                <div class="modal fade" id="modal" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel">Datepicker</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-                      <div class="modal-body" style="height: 1000px;">
-                        <input type="text" class="form-control" data-toggle="datepicker">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
 
         </section>
 
