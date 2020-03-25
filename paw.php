@@ -70,7 +70,15 @@
                 <div class="card">
                     <div class="card-header">Owner Info</div>
                      <!--want to change the values here with db values-->
-                    <img src="imgs/human1.jpg" class="card-img-top" alt="owner photo">
+                    <img
+                    <?php
+                        if(isset($row->image)){
+                            echo 'src="data:image/jpeg;base64,'. base64_encode($row->image).'"';
+                        }
+                        else{
+                            echo 'src="imgs/placeholderImage.jpg"';
+                        }
+                    ?>class="card-img-top" alt="owner photo">
                     <div class="card-body">
 
 
