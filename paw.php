@@ -95,8 +95,7 @@
                                     <li><b>State:</b> <?php echo $row3->state ?></li>
                                 </ul>
                             <li><p><b>About me:</b> <?php echo $row3->bio ?></p></li>
-                            <li><p><b>Desired Play Date Time:</b> <?php echo $row2->Bio?></p></li>
-
+                            
                         </ul>
                     </div>
                 </div>
