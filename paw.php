@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  include 'scripts/petscripts.php';
+  include 'scripts/Database_constants.php';
+  include 'scripts/redirect_to_login.php';
+  include 'scripts/getOwner.php';
+  redirect_to_login();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,22 +59,33 @@
 
             <h2>Discover other pets!</h2>
 
+
+            <?php $row = getOwner(); // should have owner
+                  $row2 = getPet(); // owner pet
+                  $row3 = getRandomOwner(); // playdate
+            ?>
+
+
             <div class="card-deck">
                 <div class="card">
                     <div class="card-header">Owner Info</div>
                      <!--want to change the values here with db values-->
                     <img src="imgs/human1.jpg" class="card-img-top" alt="owner photo">
                     <div class="card-body">
-                        <h3 class="card-title">Owner name</h3>
+
+
+
+                        <h3 class="card-title"> <?php echo $row->fname ?> </h3>
+
                         <ul class="card-text">
-                            <li><b>Age:</b> 18</li>
-                            <li><b>Gender:</b> Female</li>
+                            <li><b>Age:</b> <?php echo $row->age ?></li>
+                            <li><b>Gender:</b> <?php echo $row->gender ?></li>
                             <li><b>Location:</b></li>
                                 <ul>
-                                    <li><b>City:</b> Los Angeles</li>
-                                    <li><b>State:</b> CA</li>
+                                    <li><b>City:</b> <?php echo $row->city ?></li>
+                                    <li><b>State:</b> <?php echo $row->state ?></li>
                                 </ul>
-                            <li><p><b>About me:</b> Some example text in the about me text area</p></li>
+                            <li><p><b>About me:</b> <?php echo $row->bio ?></p></li>
                         </ul>
                     </div>
                 </div>
@@ -75,6 +95,7 @@
                      <!--want to change the values here with db values-->
                     <img src="imgs/pet1.png" class="card-img-top" alt="pet photo">
                     <div class="card-body">
+
                         <h3 class="card-title">Pet name</h3>
                         <ul class="card-text">
                             <li><b>Age:</b> 3</li>
