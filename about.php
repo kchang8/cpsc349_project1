@@ -19,7 +19,7 @@
             <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
         </a>
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
-           
+
                 <?php
                     if(isset($_COOKIE['pet-owner'])){
                         $_SESSION["ID"] = $_COOKIE['pet-owner'];
@@ -63,10 +63,34 @@
         </nav>
     </nav>
 
-    <div class="mx-auto d-block" style="width: 500px;" id="PlayDate">
-        <div class="row">
-            <img class="mx-auto d-block img-fluid" src="imgs/pet1.png" alt="">
-        </div>
+    <div class="mx-auto d-block" style="width: 100%;" id="PlayDate">
+      <div id="PawMeCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="imgs/beachdogs.JPG" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="imgs/cats.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="imgs/ducks.JPG" class="d-block w-100" alt="...">
+      </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
 
     </div>
