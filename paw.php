@@ -90,27 +90,19 @@
                 </div>
             </div>
             <form method = "post" action= "script/Pawme.php" style = "display:none">
-            <input class=" owner-input form-control" type="text" name="ownerID" id="ownerID"
-                <?php
-                    if(isset($row->fname)){
-                        $x = "value = \"$row->fname\"";
-                        echo $x;
-                    }
-                    else{
-                        echo "value = \"First Name\"";
-                    }           
-                ?>       
-                readonly>
-            <?php
-            //Your ID
-            //The person's id who posted the ad
-            //The pet's ID who posted the ad
-            //time
-               
-
-
-            ?>
-
+                <input class="owner-input form-control" type="text" name="ownerID" id="ownerID"
+                    <?php
+                        if(isset($row->fname)){
+                            $x = "value = \"$row->fname\"";
+                            echo $x;
+                        }
+                        else{
+                            echo "value = \"First Name\"";
+                        }           
+                    ?>       
+                    readonly>
+            </form>
+           
             <div class="row justify-content-around">
                 <input class="pawButtons" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
                 <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" />

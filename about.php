@@ -5,6 +5,7 @@
 <head>
     <title>About</title>
 
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap">
@@ -62,43 +63,54 @@
         </nav>
     </nav>
 
-    <div class="mx-auto d-block" style="width: 100%;" id="PlayDate">
+    <div class="bannerContainer">
+      <div class="row">
+        <div class="banner">
+          <img src="imgs/petBanner.jpg" alt="about banner" class="img-fluid">
+          <h2 class="heading">About Paw Me</h2>
+        </div>
+      </div>
+    </div>
+
+    <section class="container">
+      <h4 style="line-height: 1.8; margin-top: 50px; margin-bottom: 50px;">
+        Paw me is a new way for you and your pets to meet new friends. There's 
+        no limit as to what type of animals your pets are to plan playdates. They can be 
+        furry animals to even scaly reptiles. Paw me keeps track of your scheduled play dates and allows
+        you to discover other people's profiles for you to select who you want to schedule
+        your playdates with. 
+      </h4>
+
       <div id="PawMeCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="imgs/beachdogs.JPG" class="d-block w-100" alt="...">
+          <ol class="carousel-indicators">
+            <li data-target="#PawMeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#PawMeCarousel" data-slide-to="1"></li>
+            <li data-target="#PawMeCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="imgs/beachdogs.png" class="d-block w-100" alt="dog slide">
+            </div>
+            <div class="carousel-item">
+              <img src="imgs/cats.png" class="d-block w-100" alt="cat slide">
+            </div>
+            <div class="carousel-item">
+              <img src="imgs/ducks.png" class="d-block w-100" alt="duck slide">
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#PawMeCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#PawMeCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
       </div>
-      <div class="carousel-item">
-        <img src="imgs/cats.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="imgs/ducks.JPG" class="d-block w-100" alt="...">
-      </div>
-    </div>
-
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-
-    </div>
-
-    <section>
-        <p><b>About: </b></p>
-        <p><b> </b></p>
     </section>
 
+    <footer class="page-footer font-small pt-3">
+      <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
