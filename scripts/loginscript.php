@@ -21,14 +21,17 @@
 
         if(mysqli_num_rows($result)==0){
             $_SESSION["err"] = 1;
-            
+            echo  "<script> console.log(\"There is no is set\") </script>";
+            header ("Location: ../login.php");
+
         }
         else{
             $row = mysqli_fetch_object($result);
             $_SESSION["ID"] = $row->ID;
             setcookie('pet-owner', $row->ID, time()+3600, "/");
             $_SESSION["err"] = 0;
+            header ("Location: ../home.php");
         }
-        header ("Location: ../home.php");
+        
     }
 ?>
