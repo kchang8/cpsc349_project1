@@ -146,7 +146,7 @@
   <p align = "center">
   <b>Pending</b>
   </p>
-  </section>                            
+  </section>
   <section>
     <table class="table table-light table-striped">
       <thead class="thead-dark">
@@ -191,8 +191,11 @@
 
     ?>
     </table>
+
+
+    <button onClick = "location.href='petSignup.php'"  type="join" class="butn mx-auto d-block btn-default">Confirm!</button>
   </section>
-  
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
