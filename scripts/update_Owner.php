@@ -16,9 +16,6 @@
                 echo $log;
             }
             $file = addslashes(file_get_contents($_FILES["ownerpicture"]["tmp_name"]));
-
-            
-
             $fname = $_POST['firstName'];
             $lname =  $_POST['lastName'];
             $city =  $_POST['city'];
@@ -50,8 +47,6 @@
                 print("Transaction Failed");
                 exit();
             }
-        //$log = "<script> console.log(`$row->ID`) </script>";
-        //echo $log;
         header ("Location: ../profile.php");
     }
 ?>
