@@ -44,8 +44,11 @@
 
 
   </div>
-    <?php $row = getOwner();
-          $row2 = getPet();
+    <?php $row = getOwner(); // should have owner
+          $row2 = getPet(); // owner pet
+          $row3 = getPlaydate(); // playdate
+          $row4 = getOwner2($row3->OwnerID_responder); // responder owner
+          $row5 = getPet2($row3->PetID_responder); // responder pet
     ?>
 
   <section>
@@ -64,11 +67,10 @@
           <th scope = "col">Picture</th>
         </tr>
       </thead>
-      <?php
+
       // placeholder values for the IDs
-        while ($rows=mysqli_fetch_assoc($result))
-        {
-            ?>
+    
+           
       <tr>
         <td>
           <?php echo $rows['PetID_responder']; ?>
@@ -95,7 +97,7 @@
         </td>
       </tr>
       <?php
-        }
+        
     ?>
       <!-- <tbody>
         <tr>
