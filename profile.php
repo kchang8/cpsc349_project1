@@ -64,6 +64,7 @@
                     <form id = "owner-info" name = "owner-info" data-owner-signup="form" method="POST" action="scripts/update_Owner.php" enctype="multipart/form-data">
                         <div class="box text-center">
                             <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
+                            <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
                             <img id = "owner-picture"<?php
                                 if(isset($row->image)){
                                     echo 'src="data:image/jpeg;base64,'. base64_encode($row->image).'"';

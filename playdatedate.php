@@ -1,11 +1,10 @@
 <?php 
- include 'scripts/petscripts.php';
- include 'scripts/Database_constants.php';
- include 'scripts/redirect_to_login.php';
- include 'scripts/getOwner.php';
- $db = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
-$query="select * from playdates";
-$result=mysqli_query($db, $query)
+  session_start();
+  include 'scripts/petscripts.php';
+  include 'scripts/Database_constants.php';
+  include 'scripts/redirect_to_login.php';
+  include 'scripts/getOwner.php';
+  redirect_to_login();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +47,10 @@ $result=mysqli_query($db, $query)
     <?php $row = getOwner();?>
 
   <section>
-    <p><b>Your Name: "$row->fname"</b></p>
+    <p><b><?php
+      echo "Your Name: '$row->fname'";
+
+    ?></b></p>
     <p><b> Pet Name: </b></p>
   </section>
   <section>
