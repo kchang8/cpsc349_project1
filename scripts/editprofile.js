@@ -14,6 +14,7 @@
         if(togglepet ===0){
             console.log("We prevented the default edit event");
             $(".pet-input").attr("readonly", false);
+            $(".pet-input-drop").removeAttr("disabled");
             $(".pet-input-drop").attr("enabled");
             edit_pet.text("Save Changes");
             togglepet = 1;

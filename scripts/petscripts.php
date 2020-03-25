@@ -32,7 +32,7 @@
             echo $query;
             $this->conn->query($query);
             
-            $query =    "CREATE TABLE `$this->petDatabase`.`pets` ( `ID` INT NOT NULL, `OwnerID` INT NOT NULL, `Name` ";
+            $query =    "CREATE TABLE `$this->petDatabase`.`pets` ( `ID` INT NOT NULL AUTO_INCREMENT, `OwnerID` INT NOT NULL, `Name` ";
             $query .=   "varchar(64) NOT NULL, `Species` varchar(64) NOT NULL, `Breed` varchar(64) NOT NULL, `Age` int(11) NOT NULL, ";
             $query .=   "`gender` VARCHAR(4) NOT NULL, `Bio` varchar(512) NOT NULL,`image` MEDIUMBLOB NULL DEFAULT NULL, PRIMARY KEY (`ID`)) ENGINE=InnoDB;";
 
@@ -40,7 +40,7 @@
 
             $query = "CREATE TABLE `$this->petDatabase`.`playdates` ( `PetID_creator` int(11) NOT NULL, `OwnerID_creator` ";
             $query.= "int(11) NOT NULL, `PetID_responder` int(11) NULL, `OwnerID_responder` int(11) NULL, `Time` DATETIME  NOT NULL, ";
-            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending', PRIMARY KEY (`OwnerID_creator`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->query($query);
             
             

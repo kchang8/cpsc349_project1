@@ -9,7 +9,6 @@
         $query = "SELECT * FROM `owners` WHERE ID = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query);
-
             $_SESSION["err"] = 0;
             $row = mysqli_fetch_object($result);
             return $row;
@@ -58,12 +57,23 @@
         $query = "SELECT * FROM owners WHERE ID != $ID ORDER BY RAND() LIMIT 1 ";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query);
-
-            $_SESSION["err"] = 0;
-            $row = mysqli_fetch_object($result);
-            return $row;
+        $_SESSION["err"] = 0;
+        $row = mysqli_fetch_object($result);
+        return $row;
     }
 
+
+//IN THE MAKING
+    /* function pawMe($row, $row2, $row3){
+      session_start();
+
+      include 'Database_constants.php';
+      $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+
+        $query = "INSERT INTO playdates (PetID_creator, OwnerID_creator, PetId_responder, OwnerID_responder, Time, State, City, status)
+        $result = mysqli_query($conn,$query);
+    }
+ */
 
 
     //given ID from get playdate grab responder owner

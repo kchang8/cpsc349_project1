@@ -15,6 +15,9 @@
         $email = $_POST['emailAddress'];
         $pass = $_POST['userPassword'];
         $gender = $_POST['gender'];
+        $bio = $_POST['aboutMe'];
+        $file = addslashes(file_get_contents($_FILES["ownerpicture"]["tmp_name"]));
+
         $query = "SELECT email, password, ID FROM owners WHERE email = '$email'";
         $result = mysqli_query($conn,$query); 
         $x = mysqli_num_rows($result);
@@ -25,8 +28,14 @@
             header ("Location: ../ownerSignup.php");
         }
         else{
-            $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`) ";
-            $query.= "VALUES ('$fname','$lname','$city','$state',$age,'$email','$pass','$gender');";
+            if(is_uploaded_file($_FILES["ownerpicture"]["tmp_name"])){
+                $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`,`bio`, `image`) ";
+                $query.= "VALUES ('$fname','$lname','$city','$state',$age,'$email','$pass','$gender','$bio','$file');";
+            }
+            else{
+                $query = "INSERT INTO `owners` (`fname`,`lname`,`city`,`state`,`age`,`email`,`password`,`gender`,`bio`) ";
+                $query.= "VALUES ('$fname','$lname','$city','$state',$age,'$email','$pass','$gender','$bio');";
+            }
             $result = mysqli_query($conn,$query); 
             if(!mysqli_commit($conn)){
                 print("Transaction Failed");

@@ -96,7 +96,7 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="ownerPhoto">Upload a picture of yourself:</label>
-                            <input type="file" name="ownerPhoto" id="image"/>
+                            <input type="file" name = "ownerpicture" id="ownerpicture" />
                         </div>
                         <?php
                             if(isset($_SESSION["err"]) && $_SESSION["err"]==1){
