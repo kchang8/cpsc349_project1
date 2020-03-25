@@ -256,17 +256,20 @@
 
                             <div class="col-md-3">
                                 <label for="genderInput">Gender:</label>
-                                <input class=" pet-input form-control" id="genderInput" name="gender" 
-                                <?php
-                                    if(isset($petRow->gender)){
-                                        $x = "value = \"$petRow->gender\"";
-                                        echo $x;
-                                    }
-                                    else{
-                                        echo "value = \"insertName\"";
-                                    } 
-                                ?>
-                                 readonly="readonly">
+                                <select class="pet-input-drop form-control" id="genderInput" name="gender" disabled>
+                                    <option value="">Select</option>
+                                    <option value="F"                                     
+                                    <?php if(isset($petRow->gender) && $petRow->gender == "F"){
+                                        $x = "selected='selected'";echo $x;}
+                                    ?>
+                                    >F</option>
+                                    <option value="M"
+                                    <?php
+                                        if(isset($petRow->gender) && $petRow->gender == "M"){
+                                        $x = "selected='selected'";echo $x;}
+                                    ?>
+                                    >M</option>
+                                </select>
                             </div>
 
                             <div class="col-md-2">
