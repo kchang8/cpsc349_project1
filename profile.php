@@ -100,8 +100,11 @@
 
                             <div class="col-md-4">
                                 <label for="genderInput">Gender:</label>
-                                <input class="owner-input form-control" id="genderInput" name="gender"
-                                <?php
+                                <select class="owner-input form-control" id="genderInput" name="gender" disabled="true">
+                                    <option value="">Select</option>
+                                    <option value="F">F</option>
+                                    <option value="M">M</option>
+                                    <?php
                                     if(isset($row->fname)){
                                         $x = "value = \"$row->gender\"";
                                         echo $x;
@@ -109,7 +112,9 @@
                                     else{
                                         echo "value = \"Gender\"";
                                     }
-                                ?>   readonly>
+                                    
+                                    ?>
+                                </select>
                             </div>
                         </div>
 
