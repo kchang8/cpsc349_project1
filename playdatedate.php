@@ -84,8 +84,8 @@
     ?> 
 
   <section>
-    <p><b>Your Name: <?php if($result == TRUE){php echo $row->fname }?> </b></p>
-    <p><b> Pet Name: <?php if($result == TRUE){php echo $row2->Name }?></b></p>
+    <p><b>Your Name: <?php if($result == TRUE){ echo $row->fname }?> </b></p>
+    <p><b> Pet Name: <?php if($result == TRUE){ echo $row2->Name }?></b></p>
   </section>
 
   <section>
