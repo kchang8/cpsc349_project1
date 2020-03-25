@@ -56,25 +56,6 @@ hr {
 }
 
 
-.pink-bar{
-  margin-top: 25px;
-  padding: 10px;
-}
-
-.white-bar{
-  margin-top: 20px;
-  padding: 10px;
-}
-
-.PawMe-button{
-  width:80px;
-}
-
-.PawsOff-button{
-  width:132px;
-}
-
-
 
 h2, h4 {
     font-family: 'Ubuntu', sans-serif;
@@ -142,17 +123,32 @@ p {
     max-width: 10rem;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
+.carousel-item {
+    text-align: center;
+    min-height: 280px;
+}
+
+.banner {
+    position: relative;
     width: 100%;
-    opacity: 0;
-    transition: .3s ease;
-    background-color:gray;
-  }
+    margin: 0 auto;
+}
+
+.banner img {
+    width: 100%;
+    opacity: 0.7;
+}
+
+.heading {
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
   
 
