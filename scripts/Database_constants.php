@@ -2,5 +2,5 @@
     $dbHost = "localhost";
     $dbUsername= "San";
     $dbPass = "1234";
-    $dbName = "petdatabase";
+    $dbName = "petdatabasetest";
 ?>

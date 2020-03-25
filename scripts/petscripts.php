@@ -40,13 +40,14 @@
 
             $query = "CREATE TABLE `$this->petDatabase`.`playdates` ( `PetID_creator` int(11) NOT NULL, `OwnerID_creator` ";
             $query.= "int(11) NOT NULL, `PetID_responder` int(11) NULL, `OwnerID_responder` int(11) NULL, `Time` DATETIME  NOT NULL, ";
-            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending',  adID int(11) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->query($query);
             
             $query = "CREATE TABLE `$this->petDatabase`.`playdateads` (`ID` INT NOT NULL AUTO_INCREMENT, `PetID_creator` int(11) NOT NULL, `OwnerID_creator` ";
             $query.= "int(11) NOT NULL, `Time` DATETIME  NOT NULL, ";
-            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+            $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Open', PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->query($query);
+            
         }
 
         //THIS IS A DEBUG FUNCTION, NOT INTENDED FOR PRODUCTION
