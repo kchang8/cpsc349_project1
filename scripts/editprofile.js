@@ -40,8 +40,11 @@
     });
 
     owner_picture.on('click',function(event){
-        if(toggleowner ===1)
+        if(toggleowner ===1){
             $("#ownerpicture").trigger('click');
+            $("#insert").trigger('click');
+        }
+
     });
 
     pet_picture.on('mouseover',function(event){
@@ -50,6 +53,7 @@
 
     pet_picture.on('click',function(event){
         $("#petupload").trigger('click');
+        $
     });
 
 

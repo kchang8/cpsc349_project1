@@ -3,7 +3,7 @@
     {
         include  'Database_constants.php';
         $ID = $_SESSION["ID"];
-        $query = "SELECT * FROM `owners` WHERE ID =$ID";
+        $query = "SELECT * FROM `owners` WHERE ID = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query); 
         if (!$result){

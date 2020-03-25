@@ -58,14 +58,23 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!--owner form info-->
-                    <form id = "owner-info" data-owner-signup="form" method="POST" action="updateOwner.php" enctype="multipart/form-data">
+                    <?php
+                            $row = getOwner();
+                    ?>
+                    <form id = "owner-info" name = "owner-info" data-owner-signup="form" method="POST" action="scripts/update_Owner.php" enctype="multipart/form-data">
                         <div class="box text-center">
                             <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
-                            <img id = "owner-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
+                            <img id = "owner-picture"<?php
+                                if(isset($row->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($row->image).'"';
+                                }
+                                else{
+                                    echo 'src="imgs/placeholderImage.jpg"';
+                                }
+                            ?>
+                             class="rounded-circle" alt="placeholder image">
                         </div>
-                        <?php
-                            $row = getOwner();
-                        ?>
+ 
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-4">
@@ -179,7 +188,15 @@
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutInput">About me, the owner:</label>
-                            <textarea class="owner-input form-control" name="aboutMe" id="aboutInput" rows="3" readonly></textarea>
+                            <textarea class="owner-input form-control" name="aboutMe" id="aboutInput" rows="3" readonly><?php
+                                if(isset($row->bio)){
+                                $x = $row->bio;
+                                echo $x;
+                                }
+                                else{
+                                echo "Hello";
+                                }  
+                            ?></textarea>
                         </div>
                     </form>
                 </div>
@@ -237,7 +254,7 @@
 
                         <!--row of buttons with edit profile and edit pet buttons-->
                         <div class="row justify-content-around">
-                            <button id ="edit-profile" type="edit" class="butn btn-default">Edit Profile</button>
+                            <button id ="edit-profile" name ="edit-profile" type="edit" class="butn btn-default">Edit Profile</button>
                             <button id ="edit-pet" type="edit" class="butn btn-default">Edit Pet</button>
                         </div>
 
