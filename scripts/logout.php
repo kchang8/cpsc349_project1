@@ -1,4 +1,5 @@
 <?php
+        session_start();
         setcookie('pet-owner',"", time()-3600,"/");
         unset($_COOKIE['pet-owner']);
         if(isset($_SESSION)){

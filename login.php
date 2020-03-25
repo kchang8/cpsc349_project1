@@ -10,9 +10,9 @@
     </head>
     <body>
         <?php
+            session_start();
             if(isset($_COOKIE['pet-owner']))
             {
-                session_start();
                 $_SESSION["ID"] = $_COOKIE['pet-owner'];
                 header ("Location: home.php");
             }
@@ -54,7 +54,6 @@
                             <p>Don't have an account? Sign up <a href="ownerSignup.php">here</a></p>
                         </div>
                         <?php
-                            session_start();
                             if(isset($_SESSION["err"]) && $_SESSION["err"] == 1){
                             $_SESSION["err"] = 0;
                         ?>

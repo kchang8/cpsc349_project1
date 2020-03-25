@@ -29,6 +29,6 @@
             setcookie('pet-owner', $row->ID, time()+3600, "/");
             $_SESSION["err"] = 0;
         }
-        header ("Location: ../login.php");
+        header ("Location: ../home.php");
     }
 ?>
