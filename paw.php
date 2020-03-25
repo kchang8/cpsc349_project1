@@ -61,8 +61,8 @@
 
 
             <?php $row = getOwner(); // should have owner
-                  $row2 = getPet(); // owner pet
                   $row3 = getRandomOwner(); // playdate
+                  $row2 = getPet2($row3->ID); // owner pet
             ?>
 
 
@@ -75,17 +75,17 @@
 
 
 
-                        <h3 class="card-title"> <?php echo $row->fname ?> </h3>
+                        <h3 class="card-title"> <?php echo $row3->fname ?> </h3>
 
                         <ul class="card-text">
-                            <li><b>Age:</b> <?php echo $row->age ?></li>
-                            <li><b>Gender:</b> <?php echo $row->gender ?></li>
+                            <li><b>Age:</b> <?php echo $row3->age ?></li>
+                            <li><b>Gender:</b> <?php echo $row3->gender ?></li>
                             <li><b>Location:</b></li>
                                 <ul>
-                                    <li><b>City:</b> <?php echo $row->city ?></li>
-                                    <li><b>State:</b> <?php echo $row->state ?></li>
+                                    <li><b>City:</b> <?php echo $row3->city ?></li>
+                                    <li><b>State:</b> <?php echo $row3->state ?></li>
                                 </ul>
-                            <li><p><b>About me:</b> <?php echo $row->bio ?></p></li>
+                            <li><p><b>About me:</b> <?php echo $row3->bio ?></p></li>
                         </ul>
                     </div>
                 </div>
@@ -96,16 +96,15 @@
                     <img src="imgs/pet1.png" class="card-img-top" alt="pet photo">
                     <div class="card-body">
 
-                        <h3 class="card-title">Pet name</h3>
+                        <h3 class="card-title"><?php echo $row2->Name?></h3>
                         <ul class="card-text">
-                            <li><b>Age:</b> 3</li>
-                            <li><b>Gender:</b> Female</li>
+                            <li><b>Age:</b><?php echo $row2->Age?></li>
                             <li><b>Pet attributes:</b></li>
                                 <ul>
-                                    <li><b>Animal/Species:</b> Dog</li>
-                                    <li><b>Breed:</b> Shiba Inu</li>
+                                    <li><b>Animal/Species:</b> <?php echo $row2->Species?></li>
+                                    <li><b>Breed:</b> <?php echo $row2->Breed?></li>
                                 </ul>
-                            <li><p><b>About me:</b> Some example text in the about me pet text area</p></li>
+                            <li><p><b>About me:</b> <?php echo $row2->Bio?></p></li>
                         </ul>
                     </div>
                 </div>
