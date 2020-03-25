@@ -13,7 +13,7 @@
   $result = mysqli_query($conn,$query); 
   if($result == FALSE){
     $_SESSION["err"] = 1;
-    redirect_to_login();
+    header ("Location: ../profile.php");
     
   }
  
