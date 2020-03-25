@@ -12,6 +12,7 @@
     <head>
         <meta charset="utf-8">
         <title>Paw Me!</title>
+        <link rel="stylesheet" href="css/datepicker.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href= "stylesheets/styles.css">
@@ -37,7 +38,7 @@
                         <a href="#" class="nav-link active">Paw Me!</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">My PlayDates</a>
+                        <a href="playdatedate.php" class="nav-link">My PlayDates</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
@@ -70,7 +71,15 @@
                 <div class="card">
                     <div class="card-header">Owner Info</div>
                      <!--want to change the values here with db values-->
-                    <img src="imgs/human1.jpg" class="card-img-top" alt="owner photo">
+                    <img id = "owner-picture"<?php
+                                            if(isset($row3->image)){
+                                                echo 'src="data:image/jpeg;base64,'. base64_encode($row3->image).'"';
+                                            }
+                                            else{
+                                                echo 'src="imgs/placeholderImage.jpg"';
+                                            }
+                                        ?>
+                    class="card-img-top" alt="owner photo">
                     <div class="card-body">
 
 
@@ -86,6 +95,8 @@
                                     <li><b>State:</b> <?php echo $row3->state ?></li>
                                 </ul>
                             <li><p><b>About me:</b> <?php echo $row3->bio ?></p></li>
+                            <li><p><b>Desired Play Date Time:</b> <?php echo $row2->Bio?></p></li>
+
                         </ul>
                     </div>
                 </div>
@@ -93,7 +104,15 @@
                 <div class="card">
                 <div class="card-header">Pet Info</div>
                      <!--want to change the values here with db values-->
-                    <img src="imgs/pet1.png" class="card-img-top" alt="pet photo">
+                     <img id = "owner-picture"<?php
+                                             if(isset($row2->image)){
+                                                 echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
+                                             }
+                                             else{
+                                                 echo 'src="imgs/placeholderImage.jpg"';
+                                             }
+                                         ?>
+                     class="card-img-top" alt="pet photo">
                     <div class="card-body">
 
                         <h3 class="card-title"><?php echo $row2->Name?></h3>
@@ -105,15 +124,38 @@
                                     <li><b>Breed:</b> <?php echo $row2->Breed?></li>
                                 </ul>
                             <li><p><b>About me:</b> <?php echo $row2->Bio?></p></li>
+
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="row justify-content-around">
-                <input class="pawButtons" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
-                <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" />
+                <input class="pawButtons" type="image" onClick="history.go(0)" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
+                <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
+
+
             </div>
+            <!-- Modal -->
+                <div class="modal fade" id="modal" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Datepicker</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" style="height: 1000px;">
+                        <input type="text" class="form-control" data-toggle="datepicker">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
         </section>
 
@@ -121,6 +163,7 @@
             <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
         </footer>
 
+<script src="js/datepicker.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
