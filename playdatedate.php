@@ -9,9 +9,9 @@
 
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
-  $query = "SELECT * FROM `playdates` WHERE OwnerID = $ID";    
+  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
   $result = mysqli_query($conn,$query); 
-  if($result == TRUE){
+  if($result == FALSE){
     //$_SESSION["err"] = 1;
     header ("Location: ../home.php");
     
