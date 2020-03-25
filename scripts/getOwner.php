@@ -91,7 +91,7 @@
             header("Location: login.php");
         }
 
-        $query = "SELECT * FROM `pets` WHERE ID = $ID";
+        $query = "SELECT * FROM `pets` WHERE OwnerID = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query);
 
