@@ -59,7 +59,7 @@
                 <div class="panel-body">
                     <!--owner form info-->
                     <?php
-                            $row = getOwner();
+                         $row = getOwner();
                     ?>
                     <form id = "owner-info" name = "owner-info" data-owner-signup="form" method="POST" action="scripts/update_Owner.php" enctype="multipart/form-data">
                         <div class="box text-center">
