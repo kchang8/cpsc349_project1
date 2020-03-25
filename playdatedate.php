@@ -11,9 +11,10 @@
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID = $ID";    
   $result = mysqli_query($conn,$query); 
-  if($result == TRUE){
+  if($result == FALSE){
     $_SESSION["err"] = 1;
-    header ("Location: ../profile.php");
+    redirect_to_login();
+    
   }
  
 ?>
