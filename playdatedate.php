@@ -10,7 +10,6 @@
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID = $ID";    
   $result = mysqli_query($conn,$query); 
-  echo $log;
   if(mysqli_num_rows($result)!=0){
       $_SESSION["err"] = 1;
       header ("Location: ../ownerSignup.php");
