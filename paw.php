@@ -62,8 +62,11 @@
 
 
             <?php $row = getOwner(); // should have owner
-                  $row3 = getRandomOwner(); // playdate
-                  $row2 = getPet2($row3->ID); // owner pet
+                  $row4 = getRandomPlayDate(); // playdate
+
+                  if(isset($row4->OwnerID_creator)){
+                  $row3 = getOwnerID($row4->OwnerID_creator); // owner pet
+                  $row2 = getPetID($row4->PetID_creator);
             ?>
 
 
@@ -131,14 +134,27 @@
             </div>
 
             <form id = "pawon" data-owner-signup="form" method="POST" action="scripts/addplaydate.php" enctype="multipart/form-data" style="display:none">
-                    <input class="form-control" name="time"  required>
+                    <input class="form-control" name="time" <?php echo "value = $row4->Time";?> required>
                     <input class="form-control" name="adOwnerID" <?php echo "value = $row3->ID";?> required>
                     <input class="form-control" name="adPetID"  <?php echo "value = $row2->ID";?> required>
             </form>
             <div class="row justify-content-around">
-                <input class="pawButtons" type="image" onClick="history.go(0)" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
-                <input class="pawButtons" type="image" onClick="pawMe($row, $row2, $row3)" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
+                <input class="pawButtons" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
+                <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
             </div>
+            <?php
+                }
+                else{
+            ?>
+                <div class="card-deck">
+                <div class="card text-align-center">
+                    No playdates right now come back later!
+                    </div>
+                </div>
+            <?php
+                }
+            ?>
+                                        
 
 
         </section>
@@ -147,22 +163,10 @@
             <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
         </footer>
 
-    <script src="js/datepicker.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!--DATE PICKER -->
-      <script src="jquery.datetimepicker.full.min.js"></script>
-        <script>
-          $('$picker').datetimepicker({
-            timepicker: false,
-            datepicker: true,
-            format: 'Y-m-d',
-            value: '2020-3-24',
-            weeks: 'true'
-          })
-        </script>
-
+        <script src="scripts/paw.js" charset="utf-8"></script>     
     </body>
 
 </html>
