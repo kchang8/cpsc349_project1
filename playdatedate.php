@@ -13,7 +13,7 @@
   $result = mysqli_query($conn,$query); 
   if($result == TRUE){
     $_SESSION["err"] = 1;
-    header ("Location: ../ownerSignup.php");
+    header ("Location: ../profile.php");
   }
  
 ?>
