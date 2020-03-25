@@ -4,15 +4,19 @@
   include 'scripts/Database_constants.php';
   include 'scripts/redirect_to_login.php';
   include 'scripts/getOwner.php';
-  $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
 
   redirect_to_login();
+
+  $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID = $ID";    
   $result = mysqli_query($conn,$query); 
+  $x = mysqli_num_rows($result);
+  $log = "<script> console.log('$x')</script>";
+  echo $log;
   if(mysqli_num_rows($result)!=0){
       $_SESSION["err"] = 1;
-      header ("Location: ../ownerSignup.php");
+      header ("Location: ../profile.php");
         }
 ?>
 
