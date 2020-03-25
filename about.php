@@ -19,7 +19,6 @@
             <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
         </a>
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
-
                 <?php
                     if(isset($_COOKIE['pet-owner'])){
                         $_SESSION["ID"] = $_COOKIE['pet-owner'];
