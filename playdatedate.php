@@ -7,7 +7,7 @@
 
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
-  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
+  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID_creator = $ID)";    
   $result = mysqli_query($conn,$query); 
 
 
