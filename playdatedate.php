@@ -68,21 +68,21 @@
         </tr>
       </thead>
 
-      // placeholder values for the IDs
+      
     
            
       <tr>
         <td>
-          <?php echo $rows['PetID_responder']; ?>
+          <?php echo $row5->Name ?>
         </td>
         <td>
-          <?php echo $rows['OwnerID_creator']; ?>
+          <?php echo $row4->fname; ?>
         </td>
         <td>
-          <?php echo $rows['Time']; ?>
+          <?php echo $row3->Time; ?>
         </td>
         <td>
-          <?php echo $row2->Species ?>
+          <?php echo $row5->Species ?>
         </td>
         <td>
         <img id = "owner-picture"<?php
@@ -99,26 +99,6 @@
       <?php
         
     ?>
-      <!-- <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody> -->
     </table>
   </section>
 
