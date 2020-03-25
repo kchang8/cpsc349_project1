@@ -7,8 +7,9 @@
 
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
-  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID_creator = $ID)";    
+  $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID";    
   $result = mysqli_num_rows(mysqli_query($conn, $query)); 
+  
 
 
   redirect_to_login();
@@ -78,7 +79,7 @@
           $row = getOwner(); // should have owner
           if (getPet() != null ){
           $row2 = getPet();} // owner pet
-          if($result == 0){
+          if($result == 1 ){
           $row3 = getPlaydate(); // playdate
           $row4 = getOwner2($row3->OwnerID_responder); // responder owner
           $row5 = getPet2($row3->PetID_responder); // responder pet
@@ -107,20 +108,20 @@
            
       <tr>
         <td>
-          <?php if($result == 0){echo $row5->Name; }?>
+          <?php if($result  ==1){echo $row5->Name; }?>
         </td>
         <td>
-          <?php if($result == 0){echo $row4->fname ;}?>
+          <?php if($result  ==1){echo $row4->fname ;}?>
         </td>
         <td>
-          <?php if($result == 0){echo $row3->Time;} ?>
+          <?php if($result  ==1){echo $row3->Time;} ?>
         </td>
         <td>
-          <?php if($result == 0){echo $row5->Species ;}?>
+          <?php if($result  ==1){echo $row5->Species ;}?>
         </td>
         <td>
         <img id = "owner-picture"<?php
-                                if(isset($row2->image) && $result == 0){
+                                if(isset($row2->image) && $result  ==1){
                                     echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
                                 }
                                 else{
