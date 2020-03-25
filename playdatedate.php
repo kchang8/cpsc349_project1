@@ -5,8 +5,6 @@
   include 'scripts/redirect_to_login.php';
   include 'scripts/getOwner.php';
 
-  redirect_to_login();
-
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
   $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
@@ -16,7 +14,8 @@
     header ("Location: ../home.php");
     
   }
- 
+
+  redirect_to_login();
 ?>
 
 <!DOCTYPE html>
