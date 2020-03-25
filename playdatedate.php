@@ -9,9 +9,7 @@
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID";
   $result = mysqli_num_rows(mysqli_query($conn, $query));
-
-
-
+  
   redirect_to_login();
 ?>
 
@@ -83,12 +81,18 @@
           $row3 = getPlaydate(); // playdate
           $row4 = getOwner2($row3->OwnerID_responder); // responder owner
           $row5 = getPet2($row3->PetID_responder); // responder pet
+          $pending = $row3->status;
         }
     ?>
 
   <section>
     <p><b>Your Name: <?php echo $row->fname; ?> </b></p>
     <p><b> Pet Name: <?php  if (getPet()!= null)echo $row2->Name ;?></b></p>
+  </section>
+  <section >
+  <p align = "center">
+  <b>Confirmed</b>
+  </p>
   </section>
 
   <section>
@@ -108,16 +112,16 @@
 
       <tr>
         <td>
-          <?php if($result  ==1){echo $row5->Name; }?>
+          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row5->Name; }?>
         </td>
         <td>
-          <?php if($result  ==1){echo $row4->fname ;}?>
+          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row4->fname ;}?>
         </td>
         <td>
-          <?php if($result  ==1){echo $row3->Time;} ?>
+          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row3->Time;} ?>
         </td>
         <td>
-          <?php if($result  ==1){echo $row5->Species ;}?>
+          <?php if($result  ==1&& $pending == 'Confirmed'){echo $row5->Species ;}?>
         </td>
         <td>
         <img id = "owner-picture"<?php
@@ -136,6 +140,60 @@
     ?>
     </table>
   </section>
+  <section >
+  <p align = "center">
+  <b>Pending</b>
+  </p>
+  </section>
+  <section>
+    <table class="table table-light table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name of Paw Pal</th>
+          <th scope="col">Paw Pal Owner</th>
+          <th scope="col">Date for the Play Date</th>
+          <th scope="col">Animal Type</th>
+          <th scope = "col">Picture</th>
+        </tr>
+      </thead>
+
+
+
+
+      <tr>
+        <td>
+          <?php if($result  ==1 && $pending == 'Pending'){echo $row5->Name; }?>
+        </td>
+        <td>
+          <?php if($result  ==1 && $pending == 'Pending'){echo $row4->fname ;}?>
+        </td>
+        <td>
+          <?php if($result  ==1 && $pending == 'Pending'){echo $row3->Time;} ?>
+        </td>
+        <td>
+          <?php if($result  ==1 && $pending == 'Pending'){echo $row5->Species ;}?>
+        </td>
+        <td>
+        <img id = "owner-picture"<?php
+                                if(isset($row2->image) && $result  ==1 && $pending == 'Pending'){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
+                                }
+                                else{
+                                    echo 'src="imgs/placeholderImage.jpg"';
+                                }
+                            ?>
+                             class="rounded-circle" alt="placeholder image">
+        </td>
+      </tr>
+      <?php
+
+    ?>
+    </table>
+
+
+    <button onClick = "location.href='petSignup.html'"  type="join" class="butn mx-auto d-block btn-default">Confirm!</button>
+  </section>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

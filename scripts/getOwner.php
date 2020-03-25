@@ -121,7 +121,7 @@
 
 /*
 //IN THE MAKING
-    function pawMe($row, $row2, $row3){
+    /* function pawMe($row, $row2, $row3){
       session_start();
 
       include 'Database_constants.php';
@@ -130,7 +130,7 @@
         $query = "INSERT INTO playdates (PetID_creator, OwnerID_creator, PetId_responder, OwnerID_responder, Time, State, City, status)
         $result = mysqli_query($conn,$query);
     }
-
+ */
 
 
     //given ID from get playdate grab responder owner
