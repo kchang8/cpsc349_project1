@@ -4,8 +4,8 @@ session_start();
  include 'scripts/Database_constants.php';
  include 'scripts/redirect_to_login.php';
  include 'scripts/getOwner.php';
- include 'scripts/getPet.php'
- $db = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+ include 'scripts/getPet.php';
+$db = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
 $query="select * from playdates";
 $result=mysqli_query($db, $query)
 //redirect_to_login();

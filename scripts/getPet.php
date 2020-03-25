@@ -1,5 +1,5 @@
 <?php
-    function getOwner()
+    function getPet()
     {
         include 'Database_constants.php';
         if(!isset($_SESSION["ID"])){
