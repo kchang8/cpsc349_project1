@@ -1,6 +1,6 @@
 <?php
     $dbHost = "localhost";
-    $dbUsername= "kailiec";
+    $dbUsername= "San";
     $dbPass = "1234";
-    $dbName = "PetDatabase";
+    $dbName = "petdatabase";
 ?>

@@ -73,16 +73,13 @@
   </div>
 
     <?php
-
           $row = getOwner(); // should have owner
           if (getPet() != null ){
-          $row2 = getPet();} // owner pet
-          if($result == 1 ){
-          $row3 = getPlaydate(); // playdate
-          $row4 = getOwner2($row3->OwnerID_responder); // responder owner
-          $row5 = getPet2($row3->PetID_responder); // responder pet
-          $pending = $row3->status;
-        }
+            $row2 = getPet();
+          } // owner pet
+          $pending = getPendingPlaydates($_SESSION["ID"]);
+          $confirmed = getConfirmedPlaydates($_SESSION["ID"]);
+          $received = getReceivedPlaydates($_SESSION["ID"]);
     ?>
 
   <section>
@@ -109,24 +106,46 @@
 
 
 
-
-      <tr>
+      <?php 
+        while ($row = mysqli_fetch_assoc($confirmed)) {
+          if($row['OwnerID_creator']==$_SESSION["ID"]){
+            $otherpartyOwn = $row['OwnerID_responder'];
+            $otherpartyPet = $row['PetID_responder'];
+          }
+          else{
+            $otherpartyOwn = $row['OwnerID_creator'];
+            $otherpartyPet = $row['PetID_creator'];
+          }
+          $owner = getOwnerID($otherpartyOwn);
+          $pet = getPetID($otherpartyPet);
+      ?>
+      <tr ConPlaydate-row-role = "trigger" <?php
+          echo "other-party-owner = '$otherpartyOwn' other-party-pet = '$otherpartyPet'";
+          $date = date_create($row['Time']);
+          $x =date_format($date,'Y-m-d\TH:i');
+          echo  "other-party-time='$x'";
+          $y=$row['adID'];
+          echo "ad-id = '$y'";
+        ?>>
         <td>
-          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row5->Name; }?>
+          <?php echo $pet->Name;?>
         </td>
         <td>
-          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row4->fname ;}?>
+          <?php echo $owner->fname ;?>
         </td>
         <td>
-          <?php if($result  ==1 && $pending == 'Confirmed'){echo $row3->Time;} ?>
+          <?php
+                    $date = date_create($row['Time']);
+                    $x =date_format($date, 'm-d-Y H:i');
+                    echo $x
+            ?>
+        <td>
+          <?php echo $pet->Species ;?>
         </td>
         <td>
-          <?php if($result  ==1&& $pending == 'Confirmed'){echo $row5->Species ;}?>
-        </td>
-        <td>
-        <img id = "owner-picture"<?php
-                                if(isset($row2->image) && $result  ==1){
-                                    echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
+        <img id = "pet-picture"<?php
+                                if(isset($pet->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($pet->image).'"';
                                 }
                                 else{
                                     echo 'src="imgs/placeholderImage.jpg"';
@@ -136,13 +155,14 @@
         </td>
       </tr>
       <?php
+        }
+      ?>
 
-    ?>
     </table>
   </section>
   <section >
   <p align = "center">
-  <b>Pending</b>
+  <b>Received</b>
   </p>
   </section>
   <section>
@@ -157,26 +177,49 @@
         </tr>
       </thead>
 
+      <?php 
+        while ($row = mysqli_fetch_assoc($received)) {
+          if($row['OwnerID_creator']==$_SESSION["ID"]){
+            $otherpartyOwn = $row['OwnerID_responder'];
+            $otherpartyPet = $row['PetID_responder'];
+          }
+          else{
+            $otherpartyOwn = $row['OwnerID_creator'];
+            $otherpartyPet = $row['PetID_creator'];
+          }
+          $owner = getOwnerID($otherpartyOwn);
+          $pet = getPetID($otherpartyPet);
+      ?>
+      <tr PendPlaydate-row-role = "trigger" <?php
+          echo "other-party-owner = '$otherpartyOwn' other-party-pet = '$otherpartyPet'";
+          $date = date_create($row['Time']);
+          $x =date_format($date, 'Y-m-d\TH:i');
+          echo  "other-party-time = '$x'";
+          $y=$row['adID'];
 
-
-
-      <tr>
+          echo "this-ad-id = '$y'";
+        ?>
+      >
         <td>
-          <?php if($result  ==1 && $pending == 'Pending'){echo $row5->Name; }?>
+          <?php echo $pet->Name;?>      
         </td>
         <td>
-          <?php if($result  ==1 && $pending == 'Pending'){echo $row4->fname ;}?>
+          <?php echo $owner->fname ;?>
         </td>
         <td>
-          <?php if($result  ==1 && $pending == 'Pending'){echo $row3->Time;} ?>
+          <?php
+              $date = date_create($row['Time']);
+              $x =date_format($date, 'm-d-Y H:i');
+              echo  $x
+          ?>
         </td>
         <td>
-          <?php if($result  ==1 && $pending == 'Pending'){echo $row5->Species ;}?>
+              <?php echo $pet->Species;?>
         </td>
         <td>
         <img id = "owner-picture"<?php
-                                if(isset($row2->image) && $result  ==1 && $pending == 'Pending'){
-                                    echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
+                                if(isset($pet->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($pet->image).'"';
                                 }
                                 else{
                                     echo 'src="imgs/placeholderImage.jpg"';
@@ -186,13 +229,97 @@
         </td>
       </tr>
       <?php
-
-    ?>
+        }
+      ?>
     </table>
-
-
-    <button onClick = "location.href='petSignup.html'"  type="join" class="butn mx-auto d-block btn-default">Confirm!</button>
+    <button id= "context-button" onClick = "location.href='petSignup.html'"  type="join" class="butn mx-auto d-block btn-default">New Playdate!</button>
   </section>
+  <section >
+  <p align = "center">
+  <b>Pending</b>
+  </p>
+  </section>
+
+  <section>
+    <table class="table table-light table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name of Paw Pal</th>
+          <th scope="col">Paw Pal Owner</th>
+          <th scope="col">Date for the Play Date</th>
+          <th scope="col">Animal Type</th>
+          <th scope = "col">Picture</th>
+        </tr>
+      </thead>
+
+
+
+      <?php 
+        while ($row = mysqli_fetch_assoc($pending)) {
+          if($row['OwnerID_creator']==$_SESSION["ID"]){
+            $otherpartyOwn = $row['OwnerID_responder'];
+            $otherpartyPet = $row['PetID_responder'];
+          }
+          else{
+            $otherpartyOwn = $row['OwnerID_creator'];
+            $otherpartyPet = $row['PetID_creator'];
+          }
+          $owner = getOwnerID($otherpartyOwn);
+          $pet = getPetID($otherpartyPet);
+      ?>
+      <tr <?php
+          echo "other-party-owner = '$otherpartyOwn' other-party-pet = '$otherpartyPet'";
+          $date = date_create($row['Time']);
+          $x =date_format($date, 'Y-m-d\TH:i');
+          echo  "other-party-time = '$x'";
+        ?>>
+        <td>
+          <?php echo $pet->Name;?>
+        </td>
+        <td>
+          <?php echo $owner->fname ;?>
+        </td>
+        <td>
+          <?php
+                    $date = date_create($row['Time']);
+                    $x =date_format($date, 'm-d-Y H:i');
+                    echo  $x
+            ?>
+        <td>
+          <?php echo $pet->Species ;?>
+        </td>
+        <td>
+        <img id = "pet-picture"<?php
+                                if(isset($pet->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($pet->image).'"';
+                                }
+                                else{
+                                    echo 'src="imgs/placeholderImage.jpg"';
+                                }
+                            ?>
+                             class="rounded-circle" alt="placeholder image">
+        </td>
+      </tr>
+      <?php
+        }
+      ?>
+
+    </table>
+  </section>
+  
+  <form id = "Cancel-Date" data-owner-signup="form" method="POST" action="scripts/delete_date.php" enctype="multipart/form-data" style = "display:none">
+          <input class="form-control" id="deleteAdID" name ="deleteAdID" required>
+          <input class="form-control"  type="datetime-local"name="deletetime"id="deletetime">
+          <input class="form-control" id="deleteOwnerID" name="deleteOwnerID" >
+          <input class="form-control" id="deletePetID" name="deletePetID">
+  </form>
+
+  <form id = "Confirm-Date" data-owner-signup="form" method="POST" action="scripts/confirm_playdate.php" enctype="multipart/form-data" style = "display:none" >
+          <input class="form-control" id="confirmAdID" name ="confirmAdID" required>
+          <input class="form-control"  type="datetime-local" id="confirmtime"name ="confirmtime">
+          <input class="form-control" id="confirmOwnerID" name="confirmOwnerID" >
+          <input class="form-control" id="confirmPetID" name="confirmPetID">
+  </form>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
@@ -202,6 +329,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+  <script src="scripts/playdate.js" charset="utf-8"></script>
 
 
 </body>

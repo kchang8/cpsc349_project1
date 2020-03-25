@@ -2,6 +2,12 @@
 <html>
 
 <head>
+    <?php
+        session_start();
+        include 'scripts/redirect_to_login.php';
+        include 'scripts/getOwner.php';
+        redirect_to_login();
+    ?>
     <meta charset="utf-8">
     <title>Create Playdate</title>
     
@@ -53,18 +59,56 @@
             <img class="main-nav-logo mx-auto d-block" src="imgs/PawMeLogo.png" alt="Paw Me!">
             <h2>Create a playdate!</h2>
         </header>
+        <?php
+            $owner = getOwnerID($_SESSION["ID"]);
+            $pet = getPetByOwner($_SESSION["ID"]);
+        ?>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form data-pet-signup="form" method="POST" action="addpet.php" enctype="multipart/form-data">
+                <form data-pet-signup="form" method="POST" action="scripts/addplaydate.php" enctype="multipart/form-data">
+                    <input class="form-control" name="ownerID" id="pNameInput"<?php
+                                        if(isset($pet->Name)){
+                                            $x = "value = \"$owner->ID\"";
+                                            echo $x;
+                                        }
+                                        else{
+                                            echo "value = \"First Name\"";
+                                        }           
+                                    ?> required style ="display:none">
+                    <input class="form-control" name="petID" id="pNameInput"<?php
+                                if(isset($pet->Name)){
+                                    $x = "value = \"$pet->ID\"";
+                                    echo $x;
+                                }
+                                else{
+                                    echo "value = \"First Name\"";
+                                }           
+                            ?> required style ="display:none">
                     <div class="form-group row pt-3 form-font">
                         <div class="col-md-6">
                             <label for="pNameInput">Pet's name:</label>
-                            <input class="form-control" name="petName" id="pNameInput" autofocus required>
+                            <input class="form-control" name="petName" id="pNameInput"<?php
+                                    if(isset($pet->Name)){
+                                        $x = "value = \"$pet->Name\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"First Name\"";
+                                    }           
+                                ?> autofocus required>
                         </div>
 
                         <div class="col-md-6">
                             <label for="ownerNameInput">Pet Owner name:</label>
-                            <input class="form-control" name="ownerName" id="ownerNameInput" autofocus required>
+                            <input class="form-control" name="ownerName" id="ownerNameInput"<?php
+                                    if(isset($owner->fname)){
+                                        $x = "value = \"$owner->fname\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"First Name\"";
+                                    }           
+                                ?>  autofocus required>
                         </div>
                     </div>
 
@@ -78,13 +122,17 @@
 
                         <div class="col-md-6">
                             <label for="animalInput">What animal is your pet?</label>
-                            <input class="form-control" name="animal" id="animalInput" placeHolder="Dog" required>
+                            <input class="form-control" name="animal" id="animalInput"
+                            <?php
+                                    if(isset($pet->Species)){
+                                        $x = "value = \"$pet->Species\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"Specify Animal\"";
+                                    }           
+                            ?>  placeHolder="Dog" required>
                         </div>
-                    </div>
-
-                    <div class="form-group pt-3 form-font">
-                        <label for="petPhoto">Upload a picture of your pet:</label>
-                        <input type="file" name="petPhoto" id="image" />
                     </div>
 
                     <button type="createPlaydate" class="butn mx-auto d-block btn-default">Create Playdate</button>

@@ -30,6 +30,44 @@
             return $row;
     }
 
+
+    function getPendingPlaydates($ID){
+        include 'Database_constants.php';
+        if(!isset($_SESSION["ID"])){
+            header("Location: login.php");
+        }
+        $ID = $_SESSION["ID"];
+        $query = "SELECT * FROM `playdates` WHERE OwnerID_responder = $ID AND `status`='Pending'";
+        $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+        $result = mysqli_query($conn,$query);
+        return $result;
+    }
+
+    function getReceivedPlaydates($ID){
+        include 'Database_constants.php';
+        if(!isset($_SESSION["ID"])){
+            header("Location: login.php");
+        }
+        $ID = $_SESSION["ID"];
+        $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID AND `status`='Pending'";
+        $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+        $result = mysqli_query($conn,$query);
+        return $result;
+    }
+
+    function getConfirmedPlaydates($ID){
+        include 'Database_constants.php';
+        if(!isset($_SESSION["ID"])){
+            header("Location: login.php");
+        }
+        $ID = $_SESSION["ID"];
+        $query = "SELECT * FROM `playdates` WHERE (OwnerID_creator = $ID OR OwnerID_responder = $ID) AND `status`='Confirmed'";
+        $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+        $result = mysqli_query($conn,$query);
+        return $result;
+    }
+    
+
     function getOwnerID($ID)
     {
         include 'Database_constants.php';
@@ -79,10 +117,9 @@
         if(!isset($_SESSION["ID"])){
             header("Location: login.php");
         }
-        $query = "SELECT * FROM `pets` WHERE OwnerID = $ID";
+        $query = "SELECT * FROM `pets` WHERE `OwnerID` = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query);
-
         $_SESSION["err"] = 0;
         $row = mysqli_fetch_object($result);
         return $row;
@@ -111,7 +148,7 @@
             header("Location: login.php");
         }
         $ID = $_SESSION["ID"];
-        $query = "SELECT * FROM `playdates` WHERE `OwnerID_creator` != $ID ORDER BY RAND() LIMIT 1 ";
+        $query = "SELECT * FROM `playdateads` WHERE `OwnerID_creator` != $ID AND `status`!= 'Closed' ORDER BY RAND() LIMIT 1 ";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query);
         $_SESSION["err"] = 0;
@@ -167,5 +204,4 @@
             return $row;
     }
 
-*/
 ?>

@@ -64,12 +64,18 @@
             <?php $row = getOwner(); // should have owner
                   $row4 = getRandomPlayDate(); // playdate
 
-                  if(isset($row4->OwnerID_creator)){
-                  $row3 = getOwnerID($row4->OwnerID_creator); // owner pet
+                  if(isset($row4->OwnerID_creator)&& isset(getPetByOwner($_SESSION["ID"])->OwnerID)){
+                  $row3 = getOwnerID($row4->OwnerID_creator);
+                  $log=  "<script> console.log(\"Help\") </script>";
+                  echo $log;
+                  $log=  "<script> console.log(\"$row4->OwnerID_creator\") </script>";
+                  echo $log;
                   $row2 = getPetID($row4->PetID_creator);
             ?>
 
-
+            <h2>Preferred time: <?php  $date = date_create($row4->Time);
+                        $x =date_format($date, 'm-d-y H:i');
+                    echo "$x"; ?></h2>
             <div class="card-deck">
                 <div class="card">
                     <div class="card-header">Owner Info</div>
@@ -133,8 +139,16 @@
                 </div>
             </div>
 
-            <form id = "pawon" data-owner-signup="form" method="POST" action="scripts/addplaydate.php" enctype="multipart/form-data" style="display:none">
-                    <input class="form-control" name="time" <?php echo "value = $row4->Time";?> required>
+            <form id = "pawon" data-owner-signup="form" method="POST" action="scripts/requestplaydate.php" enctype="multipart/form-data" style = "display:none">
+                    <input class="form-control"  type="datetime-local" name="time" <?php
+                        $date = date_create($row4->Time);
+                        $x =date_format($date, 'Y-m-d\TH:i');
+                    echo "value = $x";?> required>
+                    <?php                                   //debug stuff
+                    $log = "<script> console.log(`$x`) </script>";
+                    echo $log;
+                    //end debug stuff ?>
+                    <input class="form-control" name="adID" <?php echo "value = $row4->ID";?> required>
                     <input class="form-control" name="adOwnerID" <?php echo "value = $row3->ID";?> required>
                     <input class="form-control" name="adPetID"  <?php echo "value = $row2->ID";?> required>
             </form>
@@ -144,11 +158,19 @@
             </div>
             <?php
                 }
-                else{
+                else if (!isset($row4->OwnerID_creator)) {
             ?>
                 <div class="card-deck">
                 <div class="card text-align-center">
                     No playdates right now come back later!
+                    </div>
+                </div>
+            <?php
+                }
+                else{
+            ?>
+                <div class="card text-align-center">
+                    You have no Pets!
                     </div>
                 </div>
             <?php

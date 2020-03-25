@@ -2,9 +2,10 @@
     session_start();
     include 'Database_constants.php';
     include 'getOwner.php';
-    $HOST_ID = $_POST["ownerID"];
-    $HOST_PET = $_POST["petID"];
-    $HOST_TIME = $_POST["time"];
+    $HOST_ID = $_POST["confirmOwnerID"];
+    $HOST_PET = $_POST["confirmPetID"];
+    $HOST_TIME = $_POST["confirmtime"];
+    $HOST_AD = $_POST["deleteAdID"];
 
     $log = "<script> console.log(`$HOST_TIME`) </script>";
     echo $log;
@@ -13,13 +14,21 @@
     $log = "<script> console.log(`$HOST_TIME`) </script>";
     echo $log;
     $ID = $_SESSION["ID"];
-    $owner = getOwnerID($ID);
-    $query = "INSERT INTO `playdateads` (`PetID_creator`, `OwnerID_creator`, `Time`, `State`, `City`) VALUES ($HOST_PET,$ID,'$HOST_TIME','$owner->state','$owner->city')";
+    $pet = getPetByOwner($ID);
+    $query = "DELETE FROM `playdates` WHERE `OwnerID_creator` = $ID OR `OwnerID_responder` = $ID AND `Time` = '$HOST_TIME'";
     $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
     if(!$conn){
         echo "Cannont connect to MySQL. " . mysqli_connect_error();
         exit();
     }
+    if (!mysqli_query($conn,$query)) {
+        printf("Error message: %s\n", mysqli_error($conn));
+    }
+    if(!mysqli_commit($conn)){
+        print("Transaction Failed");
+        exit();
+    }
+    $query = "UPDATE `playdateads` SET `status` = 'Open' WHERE `ID` = $HOST_AD ";
     if (!mysqli_query($conn,$query)) {
         printf("Error message: %s\n", mysqli_error($conn));
     }
