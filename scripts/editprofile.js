@@ -14,6 +14,7 @@
         if(togglepet ===0){
             console.log("We prevented the default edit event");
             $(".pet-input").attr("readonly", false);
+            $(".pet-input-drop").attr("enabled");
             edit_pet.text("Save Changes");
             togglepet = 1;
         }
@@ -49,12 +50,15 @@
     });
 
     pet_picture.on('mouseover',function(event){
-        console.log("moused over");
+        console.log("moused over pet");
     });
 
     pet_picture.on('click',function(event){
-        $("#petupload").trigger('click');
-        $
+        if(togglepet ===1){
+            $("#petpicture").trigger('click');
+        }
+    
+    
     });
 
 
