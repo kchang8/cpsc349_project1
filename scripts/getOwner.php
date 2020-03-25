@@ -48,13 +48,13 @@
     }
 
     //given ID from get playdate grab responder owner
-    function getOwner2("ID")
+    function getOwner2($ID)
     {
         include 'Database_constants.php';
         if(!isset($_SESSION["ID"])){
             header("Location: login.php");   
         }
-        $ID = $_SESSION["ID"];
+        
         $query = "SELECT * FROM `owners` WHERE ID = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query); 
@@ -65,13 +65,13 @@
     }
 
     //given ID from get playdate grab responder pet
-    function getpet2("ID")
+    function getpet2($ID)
     {
         include 'Database_constants.php';
         if(!isset($_SESSION["ID"])){
             header("Location: login.php");   
         }
-        $ID = $_SESSION["ID"];
+       
         $query = "SELECT * FROM `pets` WHERE ID = $ID";
         $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
         $result = mysqli_query($conn,$query); 
