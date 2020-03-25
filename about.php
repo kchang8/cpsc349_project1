@@ -78,7 +78,13 @@
         no limit as to what type of animals your pets are to plan playdates. They can be 
         furry animals to even scaly reptiles. Paw me keeps track of your scheduled play dates and allows
         you to discover other people's profiles for you to select who you want to schedule
-        your playdates with. 
+        your playdates with.
+      </h4>
+      
+      <h4 style="line-height: 1.8; margin-top: 50px; margin-bottom: 50px;">
+        Whether you are searching for new paw pals to plan pet parties or seeking business companions to grow 
+        your network, Paw Me allows you to discover pets and owners who share similar interests. One simple Paw 
+        Me can be the start of something new.
       </h4>
 
       <div id="PawMeCarousel" class="carousel slide" data-ride="carousel">
