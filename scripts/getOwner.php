@@ -65,6 +65,7 @@
     }
 
 
+//IN THE MAKING
     function pawMe($row, $row2, $row3){
       session_start();
 
@@ -72,8 +73,6 @@
       $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
 
         $query = "INSERT INTO playdates (PetID_creator, OwnerID_creator, PetId_responder, OwnerID_responder, Time, State, City, status)
-                VALUES (getPet(), $row->ID, $row2->ID, $row3->ID, null, $row->state, $row->city, pending)";
-
         $result = mysqli_query($conn,$query);
     }
 
