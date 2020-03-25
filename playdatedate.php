@@ -44,14 +44,13 @@
 
 
   </div>
-    <?php $row = getOwner();?>
+    <?php $row = getOwner();
+          $row2 = getPet();
+    ?>
 
   <section>
-    <p><b><?php
-      echo "Your Name: '$row->fname'";
-
-    ?></b></p>
-    <p><b> Pet Name: </b></p>
+    <p><b>Your Name: <?php echo $row->fname ?> </b></p>
+    <p><b> Pet Name: <?php echo $row2->Name ?></b></p>
   </section>
 
   <section>
@@ -62,6 +61,7 @@
           <th scope="col">Paw Pal Owner</th>
           <th scope="col">Date for the Play Date</th>
           <th scope="col">Animal Type</th>
+          <th scope = "col">Picture</th>
         </tr>
       </thead>
       <?php
@@ -80,7 +80,18 @@
           <?php echo $rows['Time']; ?>
         </td>
         <td>
-          <?php echo $rows['PetID_responder']; ?>
+          <?php echo $row2->Species ?>
+        </td>
+        <td>
+        <img id = "owner-picture"<?php
+                                if(isset($row2->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
+                                }
+                                else{
+                                    echo 'src="imgs/placeholderImage.jpg"';
+                                }
+                            ?>
+                             class="rounded-circle" alt="placeholder image">
         </td>
       </tr>
       <?php
