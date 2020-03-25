@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  include 'scripts/petscripts.php';
+  include 'scripts/Database_constants.php';
+  include 'scripts/redirect_to_login.php';
+  include 'scripts/getOwner.php';
+  redirect_to_login();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,22 +59,33 @@
 
             <h2>Discover other pets!</h2>
 
+
+            <?php $row = getOwner(); // should have owner
+                  $row3 = getRandomOwner(); // playdate
+                  $row2 = getPet2($row3->ID); // owner pet
+            ?>
+
+
             <div class="card-deck">
                 <div class="card">
                     <div class="card-header">Owner Info</div>
                      <!--want to change the values here with db values-->
                     <img src="imgs/human1.jpg" class="card-img-top" alt="owner photo">
                     <div class="card-body">
-                        <h3 class="card-title">Owner name</h3>
+
+
+
+                        <h3 class="card-title"> <?php echo $row3->fname ?> </h3>
+
                         <ul class="card-text">
-                            <li><b>Age:</b> 18</li>
-                            <li><b>Gender:</b> Female</li>
+                            <li><b>Age:</b> <?php echo $row3->age ?></li>
+                            <li><b>Gender:</b> <?php echo $row3->gender ?></li>
                             <li><b>Location:</b></li>
                                 <ul>
-                                    <li><b>City:</b> Los Angeles</li>
-                                    <li><b>State:</b> CA</li>
+                                    <li><b>City:</b> <?php echo $row3->city ?></li>
+                                    <li><b>State:</b> <?php echo $row3->state ?></li>
                                 </ul>
-                            <li><p><b>About me:</b> Some example text in the about me text area</p></li>
+                            <li><p><b>About me:</b> <?php echo $row3->bio ?></p></li>
                         </ul>
                     </div>
                 </div>
@@ -75,34 +95,21 @@
                      <!--want to change the values here with db values-->
                     <img src="imgs/pet1.png" class="card-img-top" alt="pet photo">
                     <div class="card-body">
-                        <h3 class="card-title">Pet name</h3>
+
+                        <h3 class="card-title"><?php echo $row2->Name?></h3>
                         <ul class="card-text">
-                            <li><b>Age:</b> 3</li>
-                            <li><b>Gender:</b> Female</li>
+                            <li><b>Age:</b><?php echo $row2->Age?></li>
                             <li><b>Pet attributes:</b></li>
                                 <ul>
-                                    <li><b>Animal/Species:</b> Dog</li>
-                                    <li><b>Breed:</b> Shiba Inu</li>
+                                    <li><b>Animal/Species:</b> <?php echo $row2->Species?></li>
+                                    <li><b>Breed:</b> <?php echo $row2->Breed?></li>
                                 </ul>
-                            <li><p><b>About me:</b> Some example text in the about me pet text area</p></li>
+                            <li><p><b>About me:</b> <?php echo $row2->Bio?></p></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <form method = "post" action= "script/Pawme.php" style = "display:none">
-                <input class="owner-input form-control" type="text" name="ownerID" id="ownerID"
-                    <?php
-                        if(isset($row->fname)){
-                            $x = "value = \"$row->fname\"";
-                            echo $x;
-                        }
-                        else{
-                            echo "value = \"First Name\"";
-                        }           
-                    ?>       
-                    readonly>
-            </form>
-           
+
             <div class="row justify-content-around">
                 <input class="pawButtons" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
                 <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" />
