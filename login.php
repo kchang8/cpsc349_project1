@@ -19,7 +19,7 @@
         ?>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
             <a href="#" class="navbar-brand">
-              <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo" >
+              <img href="landing.php" class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo" >
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>

@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
         <a href="#" class="navbar-brand">
-            <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
+            <img href="landing.php" class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
         </a>
         <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
                 <?php

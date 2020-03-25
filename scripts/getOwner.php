@@ -12,9 +12,6 @@
 
             $_SESSION["err"] = 0;
             $row = mysqli_fetch_object($result);
-            return $row;
-        
+            return $row;    
     }
-
-
 ?>

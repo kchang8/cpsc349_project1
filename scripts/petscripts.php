@@ -39,7 +39,7 @@
             $this->conn->query($query);
 
             $query = "CREATE TABLE `$this->petDatabase`.`playdates` ( `PetID_creator` int(11) NOT NULL, `OwnerID_creator` ";
-            $query.= "int(11) NOT NULL, `PetID_responder` int(11) NOT NULL, `OwnerID_responder` int(11) NOT NULL, `Time` DATETIME  NOT NULL, ";
+            $query.= "int(11) NOT NULL, `PetID_responder` int(11) NULL, `OwnerID_responder` int(11) NULL, `Time` DATETIME  NOT NULL, ";
             $query.= "`State` varchar(4) NOT NULL, `City` varchar(64) NOT NULL, `status` varchar(32) NOT NULL DEFAULT 'Pending' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
             $this->conn->query($query);
             
