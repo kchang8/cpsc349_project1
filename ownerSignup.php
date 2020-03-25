@@ -22,8 +22,8 @@
             <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
                 <div class="navbar-nav text-right">
                     <a href="landing.php" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">About</a>
-                    <a href="#" class="nav-item nav-link active">Join</a>
+                    <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="ownerSignup.php" class="nav-item nav-link active">Join</a>
                     <a href="login.php" class="nav-item nav-link">Login</a>
                 </div>
             </nav>

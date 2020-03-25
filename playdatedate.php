@@ -1,7 +1,7 @@
 <?php 
-include_once('petscripts.php');
-$query="select * from playdates";
-$result=mysql_query()
+//include_once('scripts/petscripts.php');
+//$query="select * from playdates";
+//$result=mysqli_query()
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +26,10 @@ $result=mysql_query()
     </a>
     <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
       <div class="navbar-nav text-right">
-        <a href="home.html" class="nav-item nav-link">Home</a>
-        <a href="#" class="nav-item nav-link">About</a>
+        <a href="home.php" class="nav-item nav-link">Home</a>
+        <a href="about.php" class="nav-item nav-link">About</a>
         <a href="#" class="nav-item nav-link active">My PlayDates</a>
-        <a href="#" class="nav-item nav-link">Account</a>
+        <a href="profile.php" class="nav-item nav-link">Profile</a>
       </div>
     </nav>
   </nav>
@@ -56,10 +56,10 @@ $result=mysql_query()
           <th scope="col">Animal Type</th>
         </tr>
       </thead>
-      <?php
+     <!--  <?php
       // placeholder values for the IDs
-        while ($rows=mysql_fetch_assoc($result))
-        {
+       // while ($rows=mysql_fetch_assoc($result))
+        //{
             ?>
             <tr>
                 <td>
@@ -75,10 +75,10 @@ $result=mysql_query()
                     <?php echo $rows['PetID_responder_Species']; ?>
                 </td>
             </tr>
-    <?php
-        }
+    <?php -->
+       // }
     ?>
-      <!-- <tbody>
+      <<tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
