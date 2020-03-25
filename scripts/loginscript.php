@@ -23,7 +23,6 @@
             $_SESSION["err"] = 1;
             echo  "<script> console.log(\"There is no is set\") </script>";
             header ("Location: ../login.php");
-
         }
         else{
             $row = mysqli_fetch_object($result);
@@ -32,6 +31,5 @@
             $_SESSION["err"] = 0;
             header ("Location: ../home.php");
         }
-        
     }
 ?>
