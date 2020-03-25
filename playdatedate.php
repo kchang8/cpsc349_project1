@@ -9,9 +9,7 @@
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID";
   $result = mysqli_num_rows(mysqli_query($conn, $query));
-
-
-
+  
   redirect_to_login();
 ?>
 
