@@ -4,6 +4,13 @@
   include 'scripts/Database_constants.php';
   include 'scripts/redirect_to_login.php';
   include 'scripts/getOwner.php';
+
+  $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+  $ID = $_SESSION["ID"];
+  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
+  $result = mysqli_query($conn,$query); 
+
+
   redirect_to_login();
 ?>
 
@@ -23,19 +30,40 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
-    <a href="#" class="navbar-brand">
-      <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo">
-    </a>
-    <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
-      <div class="navbar-nav text-right">
-        <a href="home.php" class="nav-item nav-link">Home</a>
-        <a href="about.php" class="nav-item nav-link">About</a>
-        <a href="#" class="nav-item nav-link active">My PlayDates</a>
-        <a href="profile.php" class="nav-item nav-link">Profile</a>
-      </div>
-    </nav>
-  </nav>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="home-nav">
+            <a href="#" class="navbar-brand">
+                <img class="Home-nav-logo" src="imgs/PawMeLogo.png" alt="Paw Me Logo" >
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse ml-auto" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="home.php" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="paw.php" class="nav-link">Paw Me!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="playdatedate.php" class="nav-link">My PlayDates</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                        <div class="dropdown-menu">
+                            <a href="profile.php" class="dropdown-item">View</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="scripts/logout.php" class="dropdown-item">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
 
   <div class="mx-auto d-block" style="width: 500px;" id="PlayDate">
     <div class="row">
@@ -44,16 +72,20 @@
 
 
   </div>
-    <?php $row = getOwner(); // should have owner
+  
+    <?php 
+        if($result == TRUE){
+          $row = getOwner(); // should have owner
           $row2 = getPet(); // owner pet
           $row3 = getPlaydate(); // playdate
           $row4 = getOwner2($row3->OwnerID_responder); // responder owner
           $row5 = getPet2($row3->PetID_responder); // responder pet
-    ?>
+        }
+    ?> 
 
   <section>
-    <p><b>Your Name: <?php echo $row->fname ?> </b></p>
-    <p><b> Pet Name: <?php echo $row2->Name ?></b></p>
+    <p><b>Your Name: <?php if($result == TRUE){ echo $row->fname }?> </b></p>
+    <p><b> Pet Name: <?php if($result == TRUE){ echo $row2->Name }?></b></p>
   </section>
 
   <section>
@@ -73,20 +105,20 @@
            
       <tr>
         <td>
-          <?php echo $row5->Name ?>
+          <?php if($result == TRUE){echo $row5->Name }?>
         </td>
         <td>
-          <?php echo $row4->fname; ?>
+          <?php if($result == TRUE){echo $row4->fname }?>
         </td>
         <td>
-          <?php echo $row3->Time; ?>
+          <?php if($result == TRUE){echo $row3->Time} ?>
         </td>
         <td>
-          <?php echo $row5->Species ?>
+          <?php if($result == TRUE){echo $row5->Species }?>
         </td>
         <td>
         <img id = "owner-picture"<?php
-                                if(isset($row2->image)){
+                                if(isset($row2->image) && $result == TRUE){
                                     echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
                                 }
                                 else{
