@@ -7,6 +7,4 @@
         console.log("Heyo");
         document.getElementById("pawon").submit();
     });
-
-
 })(window);

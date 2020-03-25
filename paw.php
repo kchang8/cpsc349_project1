@@ -153,7 +153,7 @@
                     <input class="form-control" name="adPetID"  <?php echo "value = $row2->ID";?> required>
             </form>
             <div class="row justify-content-around">
-                <input class="pawButtons" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
+                <input class="pawButtons" onClick="location.href='paw.php'" type="image" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
                 <input class="pawButtons" type="image" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
             </div>
             <?php

@@ -2,9 +2,9 @@
     session_start();
     include 'Database_constants.php';
     include 'getOwner.php';
-    $HOST_ID = $_POST["confirmOwnerID"];
-    $HOST_PET = $_POST["confirmPetID"];
-    $HOST_TIME = $_POST["confirmtime"];
+    $HOST_ID = $_POST["deleteOwnerID"];
+    $HOST_PET = $_POST["deletePetID"];
+    $HOST_TIME = $_POST["deletetime"];
     $HOST_AD = $_POST["deleteAdID"];
 
     $log = "<script> console.log(`$HOST_TIME`) </script>";
@@ -15,7 +15,9 @@
     echo $log;
     $ID = $_SESSION["ID"];
     $pet = getPetByOwner($ID);
-    $query = "DELETE FROM `playdates` WHERE `OwnerID_creator` = $ID OR `OwnerID_responder` = $ID AND `Time` = '$HOST_TIME'";
+    $query = "DELETE FROM `playdates` WHERE `adID`= $HOST_AD";
+    $log = "<script> console.log(`$query`) </script>";
+    echo $log;
     $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
     if(!$conn){
         echo "Cannont connect to MySQL. " . mysqli_connect_error();
