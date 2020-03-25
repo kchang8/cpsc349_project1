@@ -1,7 +1,11 @@
 <?php 
-//include_once('scripts/petscripts.php');
-//$query="select * from playdates";
-//$result=mysqli_query()
+ include 'scripts/petscripts.php';
+ include 'scripts/Database_constants.php';
+ include 'scripts/redirect_to_login.php';
+ include 'scripts/getOwner.php';
+ $db = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
+$query="select * from playdates";
+$result=mysqli_query($db, $query)
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +45,10 @@
 
 
   </div>
+    <?php $row = getOwner();?>
 
   <section>
-    <p><b>Your Name: </b></p>
+    <p><b>Your Name: "$row->fname"</b></p>
     <p><b> Pet Name: </b></p>
   </section>
   <section>
@@ -56,29 +61,29 @@
           <th scope="col">Animal Type</th>
         </tr>
       </thead>
-     <!--  <?php
+      <?php
       // placeholder values for the IDs
-       // while ($rows=mysql_fetch_assoc($result))
-        //{
+        while ($rows=mysqli_fetch_assoc($result))
+        {
             ?>
-            <tr>
-                <td>
-                    <?php echo $rows['PetID_responder']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['OwnerID_creator']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['Time']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['PetID_responder_Species']; ?>
-                </td>
-            </tr>
-    <?php -->
-       // }
+      <tr>
+        <td>
+          <?php echo $rows['PetID_responder']; ?>
+        </td>
+        <td>
+          <?php echo $rows['OwnerID_creator']; ?>
+        </td>
+        <td>
+          <?php echo $rows['Time']; ?>
+        </td>
+        <td>
+          <?php echo $rows['PetID_responder_Species']; ?>
+        </td>
+      </tr>
+      <?php 
+        }
     ?>
-      <<tbody>
+      <!-- <tbody> 
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
