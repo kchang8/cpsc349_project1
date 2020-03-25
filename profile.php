@@ -35,7 +35,7 @@
                         <a href="paw.php" class="nav-link">Paw Me!</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">My PlayDates</a>
+                        <a href="playdatedate.php" class="nav-link">My PlayDates</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>

@@ -53,6 +53,7 @@
     ?></b></p>
     <p><b> Pet Name: </b></p>
   </section>
+
   <section>
     <table class="table table-light table-striped">
       <thead class="thead-dark">
@@ -79,13 +80,13 @@
           <?php echo $rows['Time']; ?>
         </td>
         <td>
-          <?php echo $rows['PetID_responder_Species']; ?>
+          <?php echo $rows['PetID_responder']; ?>
         </td>
       </tr>
-      <?php 
+      <?php
         }
     ?>
-      <!-- <tbody> 
+      <!-- <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
