@@ -9,11 +9,7 @@
   $ID = $_SESSION["ID"];
   $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
   $result = mysqli_query($conn,$query); 
-  if($result == FALSE){
-    //$_SESSION["err"] = 1;
-    //header ("Location: ../home.php");
-    exit();
-  }
+
 
   redirect_to_login();
 ?>
@@ -76,16 +72,20 @@
 
 
   </div>
-    <?php $row = getOwner(); // should have owner
+  
+    <?php 
+        if($result == TRUE){
+          $row = getOwner(); // should have owner
           $row2 = getPet(); // owner pet
           $row3 = getPlaydate(); // playdate
           $row4 = getOwner2($row3->OwnerID_responder); // responder owner
           $row5 = getPet2($row3->PetID_responder); // responder pet
-    ?>
+        }
+    ?> 
 
   <section>
-    <p><b>Your Name: <?php echo $row->fname ?> </b></p>
-    <p><b> Pet Name: <?php echo $row2->Name ?></b></p>
+    <p><b>Your Name: <?if($result == TRUE){php echo $row->fname }?> </b></p>
+    <p><b> Pet Name: <?if($result == TRUE){php echo $row2->Name }?></b></p>
   </section>
 
   <section>
@@ -105,20 +105,20 @@
            
       <tr>
         <td>
-          <?php echo $row5->Name ?>
+          <?php if($result == TRUE){echo $row5->Name }?>
         </td>
         <td>
-          <?php echo $row4->fname; ?>
+          <?php if($result == TRUE){echo $row4->fname }?>
         </td>
         <td>
-          <?php echo $row3->Time; ?>
+          <?php if($result == TRUE){echo $row3->Time} ?>
         </td>
         <td>
-          <?php echo $row5->Species ?>
+          <?php if($result == TRUE){echo $row5->Species }?>
         </td>
         <td>
         <img id = "owner-picture"<?php
-                                if(isset($row2->image)){
+                                if(isset($row2->image) && $result == TRUE){
                                     echo 'src="data:image/jpeg;base64,'. base64_encode($row2->image).'"';
                                 }
                                 else{
