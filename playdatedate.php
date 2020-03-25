@@ -10,10 +10,10 @@
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
   $query = "SELECT * FROM `playdates` WHERE OwnerID = $ID";    
-  $result = mysqli_query($conn,$query); 
-  $x = mysqli_num_rows($result);
-  $log = "<script> console.log('$x')</script>";
-  echo $log;
+  $result = mysqli_result($conn,$query); 
+  //$x = mysqli_num_rows($result);
+  //$log = "<script> console.log('$x')</script>";
+ // echo $log;
   if(mysqli_num_rows($result)!=0){
       $_SESSION["err"] = 1;
       header ("Location: ../profile.php");
