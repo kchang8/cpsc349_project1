@@ -63,14 +63,14 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="pNameInput">Pet Owner name:</label>
+                            <label for="ownerNameInput">Pet Owner name:</label>
                             <input class="form-control" name="ownerName" id="ownerNameInput" autofocus required>
                         </div>
                     </div>
 
                     <div class="form-group row pt-3 form-font">
                         <div class="col-md-6">
-                            <label for="animalInput">Set time for playdate:</label>
+                            <label for="timeInput">Set time for playdate:</label>
                             <div class='input-group date' id='datetimepicker1'>
                                 <input class="form-control"  type="datetime-local" name="time" required>
                             </div>
@@ -87,7 +87,7 @@
                         <input type="file" name="petPhoto" id="image" />
                     </div>
 
-                    <button type="addPet" class="butn mx-auto d-block btn-default">Create Playdate</button>
+                    <button type="createPlaydate" class="butn mx-auto d-block btn-default">Create Playdate</button>
                 </form>
             </div>
         </div>
