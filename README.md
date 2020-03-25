@@ -16,7 +16,7 @@ If you want to experience Paw Me will have to perform the following steps:
 1. Install Xampp (or any web server solution package) 
 2. Clone this repository into the **htdocs** folder in xampp/htdocs
   - This folder is located in the Xampp /web server package of your choice  folder. 
-3. Edit and Save the following code in scripts/Database_constants.php
+3. Edit the following code in scripts/Database_constants.php with your appropriate information
 ```
 <?php
     $dbHost = "localhost";
@@ -26,8 +26,12 @@ If you want to experience Paw Me will have to perform the following steps:
 ?>
 
 ```
+4. Save the file.
 3. Start your server
-4. Type the following into your web browser: localhost/cpsc349_project1/landing
+4. Type the following into your web browser: localhost/cpsc349_project1/
+5. Select and Run the inittables.php file
+6. Type the following into your web browser: localhost/cpsc349_project1/landing
+ 
 
 # How to Use Paw Me
 
