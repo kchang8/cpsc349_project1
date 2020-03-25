@@ -130,17 +130,16 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
+
 <h3> Date Picker </h3>
   <input type="text" id="picker" class="form-control">
-=======
+
             <form data-owner-signup="form" method="POST" action="scripts/addplaydate.php" enctype="multipart/form-data" style="display:none">
                     <input class="form-control" name="time"  required>
                     <input class="form-control" name="adOwnerID" <?php echo "value = $row3->ID";?> required>
                     <input class="form-control" name="adPetID"  <?php echo "value = $row2->ID";?> required>
             </form>
 
->>>>>>> 711d25ebc1aa4516e4a8e4ea0d1d8b0d84df4f00
             <div class="row justify-content-around">
                 <input class="pawButtons" type="image" onClick="history.go(0)" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
                 <input class="pawButtons" type="image" onClick="pawMe($row, $row2, $row3)" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
