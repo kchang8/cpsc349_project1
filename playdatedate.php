@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start();
   include 'scripts/petscripts.php';
   include 'scripts/Database_constants.php';
@@ -7,9 +7,9 @@
 
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
-  $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID";    
-  $result = mysqli_num_rows(mysqli_query($conn, $query)); 
-  
+  $query = "SELECT * FROM `playdates` WHERE OwnerID_creator = $ID";
+  $result = mysqli_num_rows(mysqli_query($conn, $query));
+
 
 
   redirect_to_login();
@@ -73,9 +73,9 @@
 
 
   </div>
-  
-    <?php 
-        
+
+    <?php
+
           $row = getOwner(); // should have owner
           if (getPet() != null ){
           $row2 = getPet();} // owner pet
@@ -84,7 +84,7 @@
           $row4 = getOwner2($row3->OwnerID_responder); // responder owner
           $row5 = getPet2($row3->PetID_responder); // responder pet
         }
-    ?> 
+    ?>
 
   <section>
     <p><b>Your Name: <?php echo $row->fname; ?> </b></p>
@@ -103,9 +103,9 @@
         </tr>
       </thead>
 
-      
-    
-           
+
+
+
       <tr>
         <td>
           <?php if($result  ==1){echo $row5->Name; }?>
@@ -132,7 +132,7 @@
         </td>
       </tr>
       <?php
-        
+
     ?>
     </table>
   </section>

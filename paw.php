@@ -94,6 +94,7 @@
                                     <li><b>City:</b> <?php echo $row3->city; ?></li>
                                     <li><b>State:</b> <?php echo $row3->state; ?></li>
                                 </ul>
+
                             <li><p><b>About me:</b> <?php echo $row3->bio; ?></p></li>
 
                         </ul>
@@ -129,8 +130,17 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
 <h3> Date Picker </h3>
   <input type="text" id="picker" class="form-control">
+=======
+            <form data-owner-signup="form" method="POST" action="scripts/addplaydate.php" enctype="multipart/form-data" style="display:none">
+                    <input class="form-control" name="time"  required>
+                    <input class="form-control" name="adOwnerID" <?php echo "value = $row3->ID";?> required>
+                    <input class="form-control" name="adPetID"  <?php echo "value = $row2->ID";?> required>
+            </form>
+
+>>>>>>> 711d25ebc1aa4516e4a8e4ea0d1d8b0d84df4f00
             <div class="row justify-content-around">
                 <input class="pawButtons" type="image" onClick="history.go(0)" src="imgs/PawsOff.png" name="pawsoff" id="pawsoffButton" />
                 <input class="pawButtons" type="image" onClick="pawMe($row, $row2, $row3)" src="imgs/PawMe.png" name="pawme" id="pawmeButton" data-target="#modal" data-toggle="modal"/>
@@ -143,7 +153,7 @@
             <div class="footer-copyright text-center py-3">© 2020 Copyright: Paw Me!</div>
         </footer>
 
-<script src="js/datepicker.js"></script>
+    <script src="js/datepicker.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
