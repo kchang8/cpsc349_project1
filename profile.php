@@ -64,7 +64,6 @@
                     <form id = "owner-info" name = "owner-info" data-owner-signup="form" method="POST" action="scripts/update_Owner.php" enctype="multipart/form-data">
                         <div class="box text-center">
                             <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
-                            <input type="file" name = "ownerpicture" id="ownerpicture" style="display:none"/> 
                             <img id = "owner-picture"<?php
                                 if(isset($row->image)){
                                     echo 'src="data:image/jpeg;base64,'. base64_encode($row->image).'"';
@@ -169,7 +168,7 @@
                                         echo "value = \"age\"";
                                     }
                                     
-                                ?>   readonly>
+                                ?> readonly>
                             </div>
                         </div>
 
@@ -186,7 +185,7 @@
                                         echo "value = \"email\"";
                                     }
                                     
-                                ?>   value="" readonly>
+                                ?> readonly>
                             </div>
                         </div>
 
@@ -215,45 +214,118 @@
             </header>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <?php
+                        $petRow = getPet();
+                    ?>
                 <form id = "pet-info" data-pet-signup="form" method="POST" action="scripts/update_pet.php" enctype="multipart/form-data">
                         <div class="box text-center">
-                            <input type="file" id="petupload" style="display:none"/> 
-                            <img id="pet-picture" src="imgs/placeholderImage.jpg" class="rounded-circle" alt="placeholder image">
+                            <input type="file" name ="petpicture" id="petpicture" style="display:none"/> 
+                            <img id="pet-picture"<?php
+                                if(isset($petRow->image)){
+                                    echo 'src="data:image/jpeg;base64,'. base64_encode($petRow->image).'"';
+                                }
+                                else{
+                                    echo 'src="imgs/placeholderImage.jpg"';
+                                }
+                            ?>class="rounded-circle" alt="placeholder image">
                         </div>
 
                         <div class="form-group row pt-3 form-font">
-                            <input class="pet-input form-control" name="petID" id="pNameInput" readonly="readonly" style="display:none">
+                            <input class="pet-input form-control" name="petID" id="pNameInput" readonly="readonly"<?php
+                                    if(isset($petRow->ID)){
+                                        $x = "value = \"$petRow->ID\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"insertName\"";
+                                    } 
+                                ?>style="display:none">
                             <div class="col-md-7">
                                 <label for="pNameInput">Pet's name:</label>
-                                <input class="pet-input form-control" name="petName" id="pNameInput" readonly="readonly">
+                                <input class="pet-input form-control" name="petName" id="pNameInput"
+                                <?php
+                                    if(isset($petRow->Name)){
+                                        $x = "value = \"$petRow->Name\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"insertName\"";
+                                    } 
+                                ?>readonly>
                             </div>
 
                             <div class="col-md-3">
                                 <label for="genderInput">Gender:</label>
-                                <input class=" pet-input form-control" id="genderInput" name="gender" readonly="readonly">
+                                <input class=" pet-input form-control" id="genderInput" name="gender" 
+                                <?php
+                                    if(isset($petRow->gender)){
+                                        $x = "value = \"$petRow->gender\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"insertName\"";
+                                    } 
+                                ?>
+                                 readonly="readonly">
                             </div>
 
                             <div class="col-md-2">
                                 <label for="pAgeInput">Age:</label>
-                                <input class="pet-input form-control" name="petAge" id="pAgeInput" readonly="readonly">
+                                <input class="pet-input form-control" name="petAge" id="pAgeInput"
+                                <?php
+                                    if(isset($petRow->Age)){
+                                        $x = "value = \"$petRow->Age\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"Insert Age\"";
+                                    } 
+                                ?> readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group row pt-3 form-font">
                             <div class="col-md-6">
                                 <label for="animalInput">What animal is your pet?</label>
-                                <input class="pet-input form-control" name="animal" id="animalInput" readonly="readonly">
+                                <input class="pet-input form-control" name="animal" id="animalInput"
+                                <?php
+                                    if(isset($petRow->Species)){
+                                        $x = "value = \"$petRow->Species\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"Insert Species\"";
+                                    } 
+                                ?>  readonly="readonly">
                             </div>
 
                             <div class="col-md-6">
                                 <label for="breedInput">What breed is your pet?</label>
-                                <input class="pet-input form-control" name="breed" id="breedInput" readonly="readonly">
+                                <input class="pet-input form-control" name="breed" id="breedInput"
+                                <?php
+                                    if(isset($petRow->Breed)){
+                                        $x = "value = \"$petRow->Breed\"";
+                                        echo $x;
+                                    }
+                                    else{
+                                        echo "value = \"Insert Age\"";
+                                    } 
+                                ?>  readonly="readonly">
                             </div>
                         </div>
 
                         <div class="form-group pt-3 form-font">
                             <label for="aboutPetInput">About me, the pet:</label>
-                            <textarea class="pet-input form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true"></textarea>
+                            <textarea class="pet-input form-control" name="aboutPet" id="aboutPetInput" rows="3" readonly="true"><?php
+                                 if(isset($petRow->Bio)){
+                                    $x = $petRow->Bio;
+                                    echo $x;
+                                    }
+                                else{
+                                    echo "Hello Tell me about yourself!";
+                                }  
+                                ?>
+                            </textarea>
                         </div>
 
                         <!--row of buttons with edit profile and edit pet buttons-->
