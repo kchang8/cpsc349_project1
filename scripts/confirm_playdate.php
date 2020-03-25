@@ -35,5 +35,5 @@
         print("Transaction Failed");
         exit();
     }
-    header("Location: ../paw.php");
+    header("Location: ../playdatedate.php");
 ?>

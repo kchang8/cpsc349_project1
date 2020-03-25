@@ -21,8 +21,6 @@ function addDeleteClickHandler(row){
         row.setAttribute("class","bg-secondary");
         console.log(row.getAttribute('other-party-owner'));
         console.log(row.getAttribute('other-party-time'));
-        $("#context-button").removeAttr("disabled");
-        $("#context-button").attr("enabled");
         $("#context-button").text("Cancel Date?");
         var formatted = row.getAttribute('other-party-time');
         $("#deletetime").val(formatted);
@@ -39,8 +37,6 @@ function addConfirmClickHandler(row){
         row.setAttribute("class","bg-secondary");
         console.log(row.getAttribute('other-party-owner'));
         console.log(row.getAttribute('other-party-time'));
-        $("#context-button").removeAttr("disabled");
-        $("#context-button").attr("enabled");
         $("#context-button").text("Confirm Date?");
         var formatted = row.getAttribute('other-party-time');
         $("#confirmtime").val(formatted);
