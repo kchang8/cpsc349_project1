@@ -7,9 +7,8 @@
 
   $conn = mysqli_connect($dbHost,$dbUsername,$dbPass,$dbName);
   $ID = $_SESSION["ID"];
-  $query = "SELECT EXISTS (SELECT * FROM `playdates` WHERE OwnerID = $ID)";    
+  $query = "SELECT * FROM `playdates` WHERE PetID_creator = $ID";    
   $result = mysqli_query($conn,$query); 
-
 
   redirect_to_login();
 ?>
@@ -84,8 +83,8 @@
     ?> 
 
   <section>
-    <p><b>Your Name: <?php if($result == TRUE){ echo $row->fname }?> </b></p>
-    <p><b> Pet Name: <?php if($result == TRUE){ echo $row2->Name }?></b></p>
+    <p><b>Your Name: <?php if($result == TRUE){ echo $row->fname; }?> </b></p>
+    <p><b> Pet Name: <?php if($result == TRUE){ echo $row2->Name; }?></b></p>
   </section>
 
   <section>
@@ -105,16 +104,16 @@
            
       <tr>
         <td>
-          <?php if($result == TRUE){echo $row5->Name }?>
+          <?php if($result == TRUE){echo $row5->Name; }?>
         </td>
         <td>
-          <?php if($result == TRUE){echo $row4->fname }?>
+          <?php if($result == TRUE){echo $row4->fname; }?>
         </td>
         <td>
-          <?php if($result == TRUE){echo $row3->Time} ?>
+          <?php if($result == TRUE){echo $row3->Time;} ?>
         </td>
         <td>
-          <?php if($result == TRUE){echo $row5->Species }?>
+          <?php if($result == TRUE){echo $row5->Species; }?>
         </td>
         <td>
         <img id = "owner-picture"<?php
