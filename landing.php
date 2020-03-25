@@ -37,7 +37,7 @@
             <h5 class="text-nowrap mx-auto d-block">A new way to play</h5>
         </div>
         <div class="row">
-            <button type="join" class="butn mx-auto d-block btn-default">Join Today!</button>
+            <button onClick="location.href='ownerSignup.php'" type="join" class="butn mx-auto d-block btn-default">Join Today!</button>
         </div>
     </div>
 
